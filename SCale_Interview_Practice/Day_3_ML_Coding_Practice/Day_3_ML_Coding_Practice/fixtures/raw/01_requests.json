@@ -1,0 +1,90 @@
+{
+  "records": [
+    {
+      "content": {
+        "title": "  Meeting schedule  ",
+        "body": "  Please confirm the team meeting time.  "
+      },
+      "review": {
+        "category": "routine"
+      },
+      "id": "case-01"
+    },
+    {
+      "content": {
+        "title": "Invoice, follow-up",
+        "body": "The invoice says \"paid\". Please send a receipt."
+      },
+      "review": {
+        "category": "routine"
+      },
+      "id": "case-02"
+    },
+    {
+      "content": {
+        "title": "Travel request",
+        "body": "Send the approved travel policy.\nInclude the reference."
+      },
+      "review": {
+        "category": "routine"
+      },
+      "id": "case-03"
+    },
+    {
+      "content": {
+        "title": "Résumé update",
+        "body": "Please update my contact information."
+      },
+      "review": {
+        "category": "routine"
+      },
+      "id": "case-04",
+      "include": "false"
+    },
+    {
+      "content": {
+        "title": "Training registration",
+        "body": "Register me for next month's course."
+      },
+      "review": {
+        "category": "routine"
+      },
+      "id": "case-05"
+    },
+    {
+      "content": {
+        "title": "Calendar change",
+        "body": "Move our weekly planning meeting to Tuesday."
+      },
+      "review": {
+        "category": "routine"
+      },
+      "id": "case-06"
+    },
+    {
+      "content": {
+        "title": "Office supplies",
+        "body": "Order paper and pens for the office."
+      },
+      "review": {
+        "category": "routine"
+      },
+      "id": "case-07"
+    },
+    {
+      "content": {
+        "title": "Parking question",
+        "body": "Where can visitors park tomorrow?"
+      },
+      "review": {
+        "category": "routine"
+      },
+      "id": "case-08",
+      "include": null
+    },
+    {
+      "include": false,
+      "id": "not-for-training"
+    }
+  ]
+}

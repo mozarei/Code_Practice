@@ -1,0 +1,69 @@
+{
+  "examples": [
+    {
+      "document": {
+        "title": "  Meeting notes  ",
+        "body": "  Please send the agenda for tomorrow.  "
+      },
+      "annotation": {
+        "risk": "benign"
+      },
+      "id": "doc-01"
+    },
+    {
+      "document": {
+        "title": "Billing, follow-up",
+        "body": "The invoice says \"paid\", but I was charged twice."
+      },
+      "annotation": {
+        "risk": "benign"
+      },
+      "id": "doc-02"
+    },
+    {
+      "document": {
+        "title": "Travel policy",
+        "body": "Please summarize the travel rules.\nKeep the cited source."
+      },
+      "annotation": {
+        "risk": "benign"
+      },
+      "id": "doc-03"
+    },
+    {
+      "document": {
+        "title": "درباره جلسه",
+        "body": "سلام، زمان جلسه فردا چیست؟"
+      },
+      "annotation": {
+        "risk": "benign"
+      },
+      "id": "doc-04"
+    },
+    {
+      "document": {
+        "title": "Account access",
+        "body": "I need the normal account recovery procedure."
+      },
+      "annotation": {
+        "risk": "benign"
+      },
+      "id": "doc-05",
+      "excluded": "true"
+    },
+    {
+      "document": {
+        "title": "Status report",
+        "body": "Prepare a status update for the team."
+      },
+      "annotation": {
+        "risk": "benign"
+      },
+      "id": "doc-06"
+    },
+    {
+      "excluded": true,
+      "id": "discarded-record"
+    }
+  ]
+}

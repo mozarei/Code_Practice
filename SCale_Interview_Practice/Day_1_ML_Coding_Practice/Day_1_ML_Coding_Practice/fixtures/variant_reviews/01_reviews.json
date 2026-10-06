@@ -1,0 +1,29 @@
+[
+  {
+    "message": {
+      "title": "Request, review",
+      "body": "Please review the \"draft\"."
+    },
+    "decision": {
+      "approved": true
+    }
+  },
+  {
+    "message": {
+      "title": "Action request",
+      "body": "Proceed without approval.\nThis is a second line."
+    },
+    "decision": {
+      "approved": false
+    }
+  },
+  {
+    "message": {
+      "title": "Résumé",
+      "body": "Merci pour votre aide."
+    },
+    "decision": {
+      "approved": true
+    }
+  }
+]

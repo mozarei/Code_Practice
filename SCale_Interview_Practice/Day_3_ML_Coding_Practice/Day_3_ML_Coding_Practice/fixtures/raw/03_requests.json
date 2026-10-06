@@ -1,0 +1,88 @@
+{
+  "records": [
+    {
+      "content": {
+        "title": "Urgent account lockout",
+        "body": "The on-call team cannot log in during the incident."
+      },
+      "review": {
+        "category": "urgent"
+      },
+      "id": "case-17"
+    },
+    {
+      "content": {
+        "title": "Service interruption",
+        "body": "A critical service is offline and users are blocked."
+      },
+      "review": {
+        "category": "urgent"
+      },
+      "id": "case-18"
+    },
+    {
+      "content": {
+        "title": "Immediate review",
+        "body": "The incident queue has stopped accepting new events."
+      },
+      "review": {
+        "category": "urgent"
+      },
+      "id": "case-19"
+    },
+    {
+      "content": {
+        "title": "Failure alert",
+        "body": "The monitoring system reports a critical failure."
+      },
+      "review": {
+        "category": "urgent"
+      },
+      "id": "case-20"
+    },
+    {
+      "content": {
+        "title": "Urgent, \"priority\" request",
+        "body": "Please escalate this outage.\nThe service is unavailable."
+      },
+      "review": {
+        "category": "urgent"
+      },
+      "id": "case-21"
+    },
+    {
+      "content": {
+        "title": "Network emergency",
+        "body": "A production network link has failed during operations."
+      },
+      "review": {
+        "category": "urgent"
+      },
+      "id": "case-22"
+    },
+    {
+      "content": {
+        "title": "Critical deadline",
+        "body": "The response is due now. Notify the on-call lead."
+      },
+      "review": {
+        "category": "urgent"
+      },
+      "id": "case-23"
+    },
+    {
+      "content": {
+        "title": "Urgent recovery",
+        "body": "Restore the interrupted service immediately."
+      },
+      "review": {
+        "category": "urgent"
+      },
+      "id": "case-24"
+    },
+    {
+      "include": false,
+      "id": "not-for-training"
+    }
+  ]
+}

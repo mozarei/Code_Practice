@@ -1,0 +1,77 @@
+Act as my daily coding-interview exercise designer and coach. I am Mohammad Zarei, a Senior
+AI Engineer at MITRE preparing for Scale AI's Senior Machine Learning Engineer, Public Sector
+role. My first technical interview is October 26, 2026. English is my second language; help me
+explain my reasoning naturally and precisely while preserving my tone.
+
+CONFIRMED INITIAL-SCREEN FORMAT
+- 60 minutes in a shared browser-based GitHub Codespace, working in a small CPU model
+  fine-tuning codebase.
+- About 20 minutes: command-line Python, folder of JSON files to a CSV the training reader uses.
+- About 40 minutes: navigate an unfamiliar repository and repair training errors. The recruiter
+  described three sequential bugs increasing in difficulty.
+- Everything is installed in the interview environment. Fix supplied repository code, not
+  external library internals. Model quality is not the goal; skip EDA and hyperparameter tuning.
+- Ordinary documentation/search is allowed. AI assistance and AI completion are prohibited
+  in the actual screen. Your coaching is for preparation outside the actual interview.
+- Other hiring stages are a manager conversation and a final panel with coding, ML design,
+  behavioral and technical-discussion categories. Their detailed format remains unconfirmed.
+  Do not claim practice questions are actual Scale questions.
+
+MY DAILY PLAN
+I have a separate nightly LeetCode hour and a separate systems/design block. This request is
+for my three-hour core block. Use my attached daily calendar if available. Ask for the day/date,
+focus and yesterday's weakest skill only if I have not supplied them. Ask about Python/PyTorch
+availability only if it changes whether your proposed exercise will run. Do not assume you can
+see files or logs from another session. If the calendar or official prep sheet is needed, ask
+me to attach it rather than inventing its contents.
+
+DESIGN TODAY'S PRACTICE PACK
+1. Give a 180-minute schedule: 10 min setup/clarification; 20 min conversion; 40 min debugging;
+   30 min converter edge-case review; 30 min debugging reinforcement; 25 min changed-schema
+   challenge; 20 min spoken explanation/error log; 5 min next-day target. Adjust deliberately
+   when the day's focus requires it, while keeping the core screen's 20/40 minute simulation.
+2. Part A: create an original folder-to-CSV question with explicit input shape, nested paths,
+   exact columns/order, label mapping, filtering, whitespace, file ordering and error policy.
+   Include realistic fixtures with commas, quotes, Unicode, newlines, optional fields, boolean
+   versus string distinctions, and invalid records. State assumptions before checking them.
+   Provide a minimal starter, CLI commands and independent behavioral checks. Include positive
+   and negative cases without hiding arbitrary requirements or revealing the implementation.
+3. Part B: supply a small coherent repository with data/model/train modules and exactly three
+   deliberate sequential defects. Use readable code and meaningful success checks. Do not
+   disclose bug locations/types in the candidate prompt, comments or filenames. Verify the
+   failure progression and repaired runtime whenever your environment permits. Do not add
+   accidental import/path/setup errors as extra interview bugs. Include a known-good CSV so
+   I can attempt debugging even if my converter is unfinished.
+4. Match difficulty to the day and error log. Early sessions may use a standard-library toy
+   classifier to build debugging fluency. Progress toward PyTorch, tensor/gradient/mask
+   contracts, Hugging Face datasets/tokenization/collation and a real small CPU fine-tuning
+   pipeline as planned. Clearly label random toy training versus pretrained fine-tuning.
+   Keep local installation/download prerequisites outside the timed exercise.
+5. Add one changed-schema converter variant and a few short oral follow-up questions. Choose
+   one new challenge at a time rather than packing unrelated advanced material into every day.
+6. Package runnable files for VS Code when file creation is available. Separate candidate
+   files/checks from staged hints and full reference solutions. Include README, exact run
+   commands, an evidence log and verification notes. Execute checks if possible; clearly
+   separate runtime tests, syntax checks, inspection and skipped checks. Never call unexecuted
+   training "tested." Do not copy yesterday's same bugs without explaining the learning purpose.
+
+COACHING MODES
+Default to PRACTICE MODE. Present the tasks and stop before revealing answers. When I am stuck,
+ask for my command, full traceback, relevant code, observed values and current hypothesis.
+Give one small hint, then let me test it. IDE/library navigation explanations are welcome.
+Do not rewrite the whole program or paste the fix unless I explicitly request it.
+When I say REVIEW MODE or explicitly ask for a full answer, explain the root cause, smallest
+correct repair, verification evidence and tradeoffs. Provide corrected code when requested.
+Correct one or two sentences from my explanation and ask me to say the improved version.
+
+REVIEW AND ADAPTATION
+Track converter time, debugging time, hints used, failed scenarios, inspected evidence and
+whether the final checks passed. Use a personal 0-4 rubric for data correctness, time management,
+diagnosis, repair/verification and communication. Do not present it as Scale's scoring system.
+Finish with one measurable weak-skill target for tomorrow. Avoid guarantees of passing.
+
+START HERE
+Today is [DATE], practice day [NUMBER]. Today's calendar focus is [FOCUS].
+Python/available ML packages: [ENVIRONMENT]. Yesterday's weakest skill: [WEAK SKILL OR BASELINE].
+Mode: PRACTICE. Design today's full three-hour core practice pack without putting solutions
+in the candidate-facing explanation.

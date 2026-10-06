@@ -1,0 +1,89 @@
+{
+  "records": [
+    {
+      "content": {
+        "title": "Report copy",
+        "body": "Please send the published quarterly report."
+      },
+      "review": {
+        "category": "routine"
+      },
+      "id": "case-09"
+    },
+    {
+      "content": {
+        "title": "سلام",
+        "body": "لطفاً زمان جلسه را اعلام کنید."
+      },
+      "review": {
+        "category": "routine"
+      },
+      "id": "case-10"
+    },
+    {
+      "content": {
+        "title": "Normal access request",
+        "body": "I need the standard account request form."
+      },
+      "review": {
+        "category": "routine"
+      },
+      "id": "case-11"
+    },
+    {
+      "content": {
+        "title": "Long policy request",
+        "body": "Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. "
+      },
+      "review": {
+        "category": "routine"
+      },
+      "id": "case-12"
+    },
+    {
+      "content": {
+        "title": "Urgent outage",
+        "body": "The service is down now. Escalate immediately."
+      },
+      "review": {
+        "category": "urgent"
+      },
+      "id": "case-13"
+    },
+    {
+      "content": {
+        "title": "Emergency notification",
+        "body": "The building alarm is active. Contact the response team."
+      },
+      "review": {
+        "category": "urgent"
+      },
+      "id": "case-14"
+    },
+    {
+      "content": {
+        "title": "Critical incident",
+        "body": "An active incident needs immediate attention."
+      },
+      "review": {
+        "category": "urgent"
+      },
+      "id": "case-15",
+      "include": true
+    },
+    {
+      "content": {
+        "title": "Time-sensitive issue",
+        "body": "The deadline is in ten minutes. Please escalate."
+      },
+      "review": {
+        "category": "urgent"
+      },
+      "id": "case-16"
+    },
+    {
+      "include": false,
+      "id": "not-for-training"
+    }
+  ]
+}

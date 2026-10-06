@@ -1,0 +1,46 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Day 1 - Convert JSON",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/convert.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "--input-dir",
+        "fixtures/raw",
+        "--output-csv",
+        "output/train.csv"
+      ],
+      "justMyCode": true
+    },
+    {
+      "name": "Day 1 - Debug training (stdlib)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/train.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "--csv",
+        "output/train.csv"
+      ],
+      "justMyCode": true
+    },
+    {
+      "name": "Day 1 - Debug training (PyTorch)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/torch_src/train.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "--csv",
+        "output/train.csv"
+      ],
+      "justMyCode": true
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Convert training data",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/convert.py",
+      "args": [
+        "--input-dir",
+        "fixtures/raw",
+        "--output-csv",
+        "output/train.csv"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Debug CPU fine-tuning",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/train.py",
+      "args": [
+        "--csv",
+        "fixtures/reference_train.csv"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+text,label
+"Meeting schedule
+Please confirm the team meeting time.",0
+"Invoice, follow-up
+The invoice says ""paid"". Please send a receipt.",0
+"Travel request
+Send the approved travel policy.
+Include the reference.",0
+"Résumé update
+Please update my contact information.",0
+"Training registration
+Register me for next month's course.",0
+"Calendar change
+Move our weekly planning meeting to Tuesday.",0
+"Office supplies
+Order paper and pens for the office.",0
+"Parking question
+Where can visitors park tomorrow?",0
+"Report copy
+Please send the published quarterly report.",0
+"سلام
+لطفاً زمان جلسه را اعلام کنید.",0
+"Normal access request
+I need the standard account request form.",0
+"Long policy request
+Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy. Please explain the published office policy.",0
+"Urgent outage
+The service is down now. Escalate immediately.",1
+"Emergency notification
+The building alarm is active. Contact the response team.",1
+"Critical incident
+An active incident needs immediate attention.",1
+"Time-sensitive issue
+The deadline is in ten minutes. Please escalate.",1
+"Urgent account lockout
+The on-call team cannot log in during the incident.",1
+"Service interruption
+A critical service is offline and users are blocked.",1
+"Immediate review
+The incident queue has stopped accepting new events.",1
+"Failure alert
+The monitoring system reports a critical failure.",1
+"Urgent, ""priority"" request
+Please escalate this outage.
+The service is unavailable.",1
+"Network emergency
+A production network link has failed during operations.",1
+"Critical deadline
+The response is due now. Notify the on-call lead.",1
+"Urgent recovery
+Restore the interrupted service immediately.",1

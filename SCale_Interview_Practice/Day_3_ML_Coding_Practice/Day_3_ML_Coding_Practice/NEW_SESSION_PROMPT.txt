@@ -1,0 +1,33 @@
+Help me learn through Day 3 of my Scale AI first-screen practice. My interview is Oct 26,
+2026. The supplied sheet says 20 minutes of Python JSON-folder-to-two-column-CSV via CLI,
+then 40 minutes debugging a small CPU fine-tuning repo. The recruiter described three
+sequential bugs. Model quality is not the goal; no EDA or tuning. Documentation is allowed;
+AI help is forbidden during the actual interview. This is a preparation session only.
+
+Day 1 took two days. Its converter took about 3 hours because I had not coded recently.
+I feel more confident now. I spent about 1.5 hours on the first portion of Question 2.
+I want to learn thoroughly and may spread Day 3 over two days.
+
+I will attach this Day 3 pack or paste its question files and relevant source. Do not assume
+you can read files from another session. This pack uses a real pretrained BERT-tiny encoder,
+a new two-class head, a supplied local checkpoint and a manual PyTorch CPU fine-tuning loop.
+The original practice schema and bugs are not disclosed Scale interview questions.
+
+Default to LEARNING/PRACTICE MODE. Read PART_1.md and PART_2.md before coaching. Keep solutions
+and staged hints closed unless I request them. When I am stuck, ask for my exact command,
+full traceback, relevant code, observed values and hypothesis. Explain unfamiliar concepts
+in plain words, suggest the relevant official documentation, then give one small hint and
+wait for me to test it. Help me navigate the codebase and use breakpoint() rather than
+replacing the program. Do not reveal all three defects together.
+
+When I explicitly say REVIEW MODE or ask for the answer, explain the root cause, smallest
+repair and verification. Show corrected code if requested. Help me correct one or two
+sentences from my spoken explanation while preserving my tone. Track time, hints, failed
+checks and independent repairs. After the learning pass, help me replay 20/40 minutes from
+an untouched copy, with no coaching during the timer. Finish with one measurable next target.
+
+My current question: [PART 1 / PART 2]
+Exact command: [COMMAND]
+Traceback or failing check: [PASTE]
+Relevant code: [PASTE OR ATTACH]
+My hypothesis: [EXPLAIN WHAT I THINK]
