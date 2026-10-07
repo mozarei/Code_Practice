@@ -22,8 +22,15 @@ def main():
     torch.manual_seed(11)
     torch.set_num_threads(2)
     tokenizer = AutoTokenizer.from_pretrained(args.checkpoint, local_files_only=True)
+
+
     dataset = TextRows(args.csv)
+
+    print(f"type of the dataset: {type(dataset)}")
     loader = DataLoader(dataset, batch_size=4, shuffle=False, collate_fn=make_collator(tokenizer))
+    print(f"the type of the loader is: {type(loader)}")
+
+    # breakpoint()
     model = TicketClassifier(args.checkpoint).to("cpu")
     model.train()
     optimizer = torch.optim.AdamW(model.parameters(), lr=1e-4)
@@ -40,11 +47,17 @@ def main():
     print(f"CSV_ROWS={len(dataset)} DEVICE=cpu", flush=True)
     for epoch in range(2):
         for batch in loader:
+            for key, value in batch.items():
+                print(key, value.shape)
+            # print(f"type of batch is: {type(batch)}")
             optimizer.zero_grad(set_to_none=True)
             inputs = {key: value.to("cpu") for key,value in batch.items() if key != "labels"}
             labels = batch["labels"].to("cpu")
             logits = model(**inputs)
-            loss = criterion(logits, labels).detach()
+        
+            # breakpoint()
+            loss = criterion(logits.logits, labels)#.detach()
+            
             value = float(loss.detach())
             if not math.isfinite(value):
                 raise RuntimeError("Nonfinite loss")
