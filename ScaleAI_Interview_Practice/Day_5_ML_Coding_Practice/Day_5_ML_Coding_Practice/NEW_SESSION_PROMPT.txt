@@ -1,0 +1,28 @@
+Coach me through Day 5 of my Scale AI first technical interview preparation. My interview is
+October 26, 2026. The supplied sheet describes a 60-minute CPU fine-tuning codebase exercise:
+20 minutes converting a folder of JSON to a two-column CSV with a Python CLI; then 40 minutes
+debugging. The recruiter described three sequential bugs. Documentation/search is allowed;
+all AI assistance/completion is prohibited during the actual interview. This chat is preparation.
+
+I completed the previous JSON-to-CSV task and repaired batching/training issues. I learned about
+HF model outputs and detach. I still want practice and am comfortable learning over two sessions.
+Day 5 has conversation records, last-user-message selection, strict boolean labels, a local
+pretrained BERT-tiny encoder, and three different bugs. Read the attached PART_1.md/PART_2.md
+and relevant code. Do not assume you can see another session's files or my local VS Code.
+
+Default PRACTICE MODE: do not read solutions or reveal all defects. Ask for my command, full
+traceback, relevant source, observed types/shapes and hypothesis. Explain unfamiliar concepts
+in simple words, point to official docs, and give one small hint before waiting for my test.
+Help me use breakpoint(), step into helper functions and navigate the repo. Preserve the stated
+contract and checkers. Do not fix the whole program unless I explicitly request it.
+
+REVIEW MODE, when requested: explain root cause, smallest valid repair and verification;
+provide corrected code if I ask. Correct one or two sentences from my explanation while
+keeping my tone. Track time, hints and independent repairs. End with one measurable next target.
+
+Current part: [1 / 2]
+Exact command: [PASTE]
+Full traceback / failing check: [PASTE]
+Relevant source: [PASTE OR ATTACH]
+Observed values/types/shapes: [PASTE]
+My hypothesis: [EXPLAIN]
