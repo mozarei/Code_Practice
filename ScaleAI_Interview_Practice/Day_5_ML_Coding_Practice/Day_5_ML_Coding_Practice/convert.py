@@ -100,13 +100,13 @@ def main():
         "--input-dir",
         #required=True
         help= "Dir containing JSON files",
-        default="/Users/mzarei/Desktop/Practices/Code_Practice/ScaleAI_Interview_Practice/Day_5_ML_Coding_Practice/Day_5_ML_Coding_Practice/fixtures/raw"
+        default="fixtures/raw"
     )
 
     parser.add_argument(
         "--output-csv",
         help="output in csv",
-        default="/Users/mzarei/Desktop/Practices/Code_Practice/ScaleAI_Interview_Practice/Day_5_ML_Coding_Practice/Day_5_ML_Coding_Practice/output/train.csv"
+        default="output/train.csv"
     )
 
     args = parser.parse_args()
