@@ -1,0 +1,21 @@
+
+=== LESSON 10: Debugging the pipeline boundaries ===
+Dataset record: {'features': [1.0, 2.0], 'label': 0} <class 'dict'>
+features <class 'torch.Tensor'> (2, 2) torch.float32 cpu False
+labels <class 'torch.Tensor'> (2,) torch.int64 cpu False
+Model -> loss: <class 'torch.Tensor'> (2, 2) 0.6499370336532593 True
+name | requires_grad | grad norm | in optimizer | max weight change
+backbone.0.weight | True | 0.725733 | True | 0.01000001
+backbone.0.bias | True | 0.291318 | True | 0.01000001
+classifier.weight | True | 0.490257 | True | 0.01000001
+classifier.bias | True | 0.369610 | True | 0.01000000
+features <class 'torch.Tensor'> (1, 2) torch.float32 cpu False
+labels <class 'torch.Tensor'> (1,) torch.int64 cpu False
+Model -> loss: <class 'torch.Tensor'> (1, 2) 0.6388146281242371 True
+name | requires_grad | grad norm | in optimizer | max weight change
+backbone.0.weight | True | 0.461039 | True | 0.00994225
+backbone.0.bias | True | 0.223637 | True | 0.00163507
+classifier.weight | True | 0.905547 | True | 0.00995287
+classifier.bias | True | 0.667625 | True | 0.00326687
+
+--- Expected exception tracebacks (where demonstrated) ---

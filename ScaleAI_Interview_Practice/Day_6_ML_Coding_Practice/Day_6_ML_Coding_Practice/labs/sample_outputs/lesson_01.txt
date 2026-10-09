@@ -1,0 +1,22 @@
+
+=== LESSON 01: nn.Module and the parameter tree ===
+TinyClassifier(
+  (backbone): Sequential(
+    (0): Linear(in_features=2, out_features=3, bias=True)
+    (1): Tanh()
+  )
+  (classifier): Linear(in_features=3, out_features=2, bias=True)
+)
+Immediate children: ['backbone', 'classifier']
+All registered modules: ['<root>', 'backbone', 'backbone.0', 'backbone.1', 'classifier']
+backbone.0.weight (3, 2) scalar count= 6
+backbone.0.bias (3,) scalar count= 3
+classifier.weight (2, 3) scalar count= 6
+classifier.bias (2,) scalar count= 2
+Parent parameter tensors: 4
+Backbone tensors: 2
+Head tensors: 2
+Parent direct tensors: 0
+Head objects are also in parent: True
+
+--- Expected exception tracebacks (where demonstrated) ---

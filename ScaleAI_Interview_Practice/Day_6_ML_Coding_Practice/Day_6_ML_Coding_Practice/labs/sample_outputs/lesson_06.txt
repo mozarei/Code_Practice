@@ -1,0 +1,13 @@
+
+=== LESSON 06: Clearing and accumulating gradients ===
+First backward grad: 4.0
+Second fresh backward grad: 8.0
+Clear to zero: tensor(0.)
+New backward: tensor(4.)
+Clear to None: None
+False does not allocate missing grad: None
+Head-only clear leaves encoder gradient: True
+Excluded backbone gradients accumulated: True
+Whole-model clear removes backbone gradient: None
+
+--- Expected exception tracebacks (where demonstrated) ---

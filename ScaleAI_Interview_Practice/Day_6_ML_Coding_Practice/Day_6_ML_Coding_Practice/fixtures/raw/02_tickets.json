@@ -1,0 +1,93 @@
+{
+  "tickets": [
+    {
+      "payload": {
+        "title": "  Request 8  ",
+        "paragraphs": [
+          "  Please process request 8 using the documented procedure.  ",
+          "   ",
+          " Additional detail 8. "
+        ]
+      },
+      "routing": "review",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 9  ",
+        "paragraphs": [
+          "  Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully. Read this long passage carefully.   ",
+          "   ",
+          " Additional detail 9. "
+        ]
+      },
+      "routing": "normal",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 10  ",
+        "paragraphs": [
+          "  Please process request 10 using the documented procedure.  ",
+          "   ",
+          " Additional detail 10. "
+        ]
+      },
+      "routing": "review",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 11  ",
+        "paragraphs": [
+          "  Please process request 11 using the documented procedure.  ",
+          "   ",
+          " Additional detail 11. "
+        ]
+      },
+      "routing": "normal",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 12  ",
+        "paragraphs": [
+          "  Please process request 12 using the documented procedure.  ",
+          "   ",
+          " Additional detail 12. "
+        ]
+      },
+      "routing": "review",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 13  ",
+        "paragraphs": [
+          "  First line\nSecond line, with a comma.  ",
+          "   ",
+          " Additional detail 13. "
+        ]
+      },
+      "routing": "normal",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 14  ",
+        "paragraphs": [
+          "  Please process request 14 using the documented procedure.  ",
+          "   ",
+          " Additional detail 14. "
+        ]
+      },
+      "routing": "review",
+      "synthetic": false
+    },
+    {
+      "synthetic": true,
+      "payload": null
+    }
+  ],
+  "source": "practice"
+}

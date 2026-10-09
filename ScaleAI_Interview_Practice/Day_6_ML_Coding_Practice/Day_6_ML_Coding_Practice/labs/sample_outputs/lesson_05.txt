@@ -1,0 +1,38 @@
+
+=== LESSON 05: Optimizer ownership and step ===
+
+OPTIMIZER SCOPE: all
+lr= 0.01 names= ['backbone.0.weight', 'backbone.0.bias', 'classifier.weight', 'classifier.bias']
+After backward
+name | requires_grad | grad norm | in optimizer | max weight change
+backbone.0.weight | True | 0.583796 | True | 0.00000000
+backbone.0.bias | True | 0.161471 | True | 0.00000000
+classifier.weight | True | 0.565868 | True | 0.00000000
+classifier.bias | True | 0.162365 | True | 0.00000000
+AdamW state entries BEFORE step: 0
+After step
+name | requires_grad | grad norm | in optimizer | max weight change
+backbone.0.weight | True | 0.583796 | True | 0.01000001
+backbone.0.bias | True | 0.161471 | True | 0.01000001
+classifier.weight | True | 0.565868 | True | 0.01000001
+classifier.bias | True | 0.162365 | True | 0.01000000
+AdamW state entries AFTER step: 4
+
+OPTIMIZER SCOPE: head
+lr= 0.01 names= ['classifier.weight', 'classifier.bias']
+After backward
+name | requires_grad | grad norm | in optimizer | max weight change
+backbone.0.weight | True | 0.583796 | False | 0.00000000
+backbone.0.bias | True | 0.161471 | False | 0.00000000
+classifier.weight | True | 0.565868 | True | 0.00000000
+classifier.bias | True | 0.162365 | True | 0.00000000
+AdamW state entries BEFORE step: 0
+After step
+name | requires_grad | grad norm | in optimizer | max weight change
+backbone.0.weight | True | 0.583796 | False | 0.00000000
+backbone.0.bias | True | 0.161471 | False | 0.00000000
+classifier.weight | True | 0.565868 | True | 0.01000001
+classifier.bias | True | 0.162365 | True | 0.01000000
+AdamW state entries AFTER step: 2
+
+--- Expected exception tracebacks (where demonstrated) ---

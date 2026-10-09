@@ -1,0 +1,9 @@
+
+=== LESSON 04: What backward changes ===
+Before: w= 2.0 grad= None
+After forward: loss= 25.0 w= 2.0 grad= None
+After backward: w= 2.0 grad= 30.0
+Weights unchanged: True
+After SGD step: w= -1.0 grad still= 30.0
+
+--- Expected exception tracebacks (where demonstrated) ---

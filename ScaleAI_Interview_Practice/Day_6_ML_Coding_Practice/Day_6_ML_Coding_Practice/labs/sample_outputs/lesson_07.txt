@@ -1,0 +1,25 @@
+
+=== LESSON 07: Full fine-tuning, head-only updates and freezing ===
+
+MODE: full
+name | requires_grad | grad norm | in optimizer | max weight change
+backbone.0.weight | True | 0.583796 | True | 0.01000001
+backbone.0.bias | True | 0.161471 | True | 0.01000001
+classifier.weight | True | 0.565868 | True | 0.01000001
+classifier.bias | True | 0.162365 | True | 0.01000000
+
+MODE: head_only_unfrozen
+name | requires_grad | grad norm | in optimizer | max weight change
+backbone.0.weight | True | 0.583796 | False | 0.00000000
+backbone.0.bias | True | 0.161471 | False | 0.00000000
+classifier.weight | True | 0.565868 | True | 0.01000001
+classifier.bias | True | 0.162365 | True | 0.01000000
+
+MODE: frozen_backbone
+name | requires_grad | grad norm | in optimizer | max weight change
+backbone.0.weight | False | None | False | 0.00000000
+backbone.0.bias | False | None | False | 0.00000000
+classifier.weight | True | 0.565868 | True | 0.01000001
+classifier.bias | True | 0.162365 | True | 0.01000000
+
+--- Expected exception tracebacks (where demonstrated) ---

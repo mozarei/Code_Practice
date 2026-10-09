@@ -1,0 +1,90 @@
+[
+  {
+    "number": 1,
+    "title": "nn.Module and the parameter tree",
+    "explanation": "nn.Module is the base class that organizes layers, parameters and model behavior. In this tiny model, backbone and classifier are registered children of the parent model. parameters() recursively visits registered descendants; named_parameters() also gives their paths. A parameter is a learnable tensor, such as a Linear layer weight or bias. Scope names come from THIS model: real wrappers may put the classifier inside backbone. Inspect the tree rather than assuming model.classifier exists.",
+    "prediction": "How many parameter TENSORS will the parent, backbone and classifier each expose? Will model.parameters(recurse=False) contain the child weights?",
+    "task": "Return a LIST of parameter objects. scope is 'all', 'backbone', or 'head'. Use the actual registered modules; do not return names or copied tensors.",
+    "task_file": "exercises/task_01.py"
+  },
+  {
+    "number": 2,
+    "title": "Parameters, requires_grad and .grad",
+    "explanation": "requires_grad=True requests autograd tracking for suitable floating-point operations. It does not mean a gradient already exists or that an optimizer will update the parameter. .grad is the gradient buffer on a leaf parameter, normally filled by backward(). None means no gradient is currently stored: this may be before backward, after clearing, because the parameter was unused, or because gradient tracking was disabled. A tensor of zeros and None are different states. Non-leaf activations do not normally retain .grad; use retain_grad() if you intentionally need an activation gradient.",
+    "prediction": "Before backward, can requires_grad be True while grad is None? What will an unused parameter show after backward?",
+    "task": "Return a list of dictionaries, in named_parameters order, with name, requires_grad, has_grad, and grad_norm (None when no gradient, otherwise a Python float L2 norm).",
+    "task_file": "exercises/task_02.py"
+  },
+  {
+    "number": 3,
+    "title": "Forward, logits and the computation graph",
+    "explanation": "model(x) calls nn.Module machinery and then your forward method. The forward pass computes outputs from inputs and current weights. Logits are raw class scores; they are not probabilities. During tracked operations, autograd builds a dynamic graph connecting parameters to logits and then loss. Loss is a scalar measuring disagreement with labels. detach() disconnects a tensor from the graph; it does NOT mean move to CPU. Detached tensors share storage; clone when you need an independent snapshot. no_grad() prevents recording inside its context. eval() changes layer behavior; it does not disable autograd.",
+    "prediction": "Will logits and loss have grad_fn? Will loss.detach() still have one? Does model.eval() alone prevent backward?",
+    "task": "Return (raw_logits, scalar_loss) using F.cross_entropy. Preserve the computation graph so the caller can run loss.backward(). Do not apply softmax first.",
+    "task_file": "exercises/task_03.py"
+  },
+  {
+    "number": 4,
+    "title": "What backward changes",
+    "explanation": "For a scalar loss, backward follows the graph using the chain rule and accumulates derivatives into connected leaf parameters' .grad. It does NOT perform an optimizer update, choose a learning rate, or clear old gradients. By default the graph's saved intermediates are released after backward; make a new forward pass for the next training step. For loss=(w*x-target)^2, derivative with respect to w is 2*(w*x-target)*x.",
+    "prediction": "For w=2, x=3, target=1, predict loss, gradient, and w AFTER backward but BEFORE step.",
+    "task": "Clear weight.grad, independently snapshot weight, compute (weight*x-target)^2, and backward. Return (before_clone, after_clone, gradient_clone). Do not update weight.",
+    "task_file": "exercises/task_04.py"
+  },
+  {
+    "number": 5,
+    "title": "Optimizer ownership and step",
+    "explanation": "An optimizer holds references to parameter objects you supplied and settings such as learning rate. param_groups is a list of dictionaries: each contains params plus options such as lr and weight_decay. step() uses stored gradients and optimizer state to update managed parameters. It does not calculate the loss or run backward. AdamW also maintains running moment estimates. In this lab AdamW weight_decay=0 keeps the comparison simple; its default weight decay is nonzero. Providing all parameters permits full fine-tuning only if they are trainable and connected to the loss. Providing only classifier parameters excludes the backbone even when its gradients exist.",
+    "prediction": "Will backbone gradients exist with a head-only optimizer? Will backbone weights change? How can you test optimizer membership using object identity?",
+    "task": "Return AdamW(lr=0.01, weight_decay=0). scope='all' manages every parameter; scope='head' manages only model.classifier parameters.",
+    "task_file": "exercises/task_05.py"
+  },
+  {
+    "number": 6,
+    "title": "Clearing and accumulating gradients",
+    "explanation": "backward ADDS to existing gradients. Ordinary per-batch training clears them before the next backward. Deliberate gradient accumulation uses several backwards before one step, with suitable loss scaling. zero_grad(set_to_none=True) removes stored gradients for MANAGED parameters; set_to_none=False zeroes already-existing buffers but does not create missing ones. model.zero_grad clears the whole model, including parameters outside a head-only optimizer. None and zero can behave differently at step: AdamW skips None gradients, while zero gradients can still lead to changes through existing momentum or weight decay. Clearing BETWEEN backward and step discards the gradients you intended to use.",
+    "prediction": "For loss=w^2 at w=2, what is grad after two fresh forwards/backwards with no clearing? Will a head-only optimizer clear backbone gradients?",
+    "task": "Start with weight.grad=None. Repeat fresh loss=weight.square() and backward repeats times. Do not step or clear between backwards. Return an independent gradient tensor.",
+    "task_file": "exercises/task_06.py"
+  },
+  {
+    "number": 7,
+    "title": "Full fine-tuning, head-only updates and freezing",
+    "explanation": "Full fine-tuning means updating the intended backbone and head parameters. Head-only training updates the head; usually you also freeze the backbone to avoid unnecessary gradient work. An excluded but unfrozen backbone can still receive and accumulate gradients. Freezing uses requires_grad_(False) before the forward; clear stale gradients as a separate action. Changing requires_grad does not automatically erase an old .grad. Verify trainability, graph connection, optimizer membership, and actual before/after weight differences. A nonzero gradient does not guarantee a change on every step; zero learning rate or an omitted parameter can prevent updates. Some parameters can legitimately have zero gradients for a particular batch.",
+    "prediction": "Compare full, head-only/unfrozen, and frozen-backbone runs: which have backbone gradients and updates?",
+    "task": "Freeze every model.backbone parameter and clear its existing .grad. Leave classifier parameters trainable. Modify model in place.",
+    "task_file": "exercises/task_07.py"
+  },
+  {
+    "number": 8,
+    "title": "Classification shapes and dtypes",
+    "explanation": "For the class-index version of cross_entropy used here, logits are floating-point [B,C], labels are torch.long [B], and each label is an integer from 0 to C-1. Logits are raw scores: cross_entropy performs the needed log-softmax internally. [B,1] targets do not match that interface. unsqueeze adds a dimension; squeeze removes size-one dimensions. squeeze() removes ALL size-one dimensions, so [1,1] can become a scalar; squeeze(-1) keeps [1]. Cross-entropy also supports probability targets of floating type and the SAME shape as logits; that separate interface is not the integer-label contract in these exercises.",
+    "prediction": "Predict shapes after squeeze() and squeeze(-1) for targets [4,1] and [1,1]. Will floating labels [B] work as integer class targets?",
+    "task": "Input is integer-valued labels of shape [B] or [B,1], possibly float dtype. Return torch.long [B] for B=1 and B=4; never a scalar. Do not change the input tensor in place.",
+    "task_file": "exercises/task_08.py"
+  },
+  {
+    "number": 9,
+    "title": "Token IDs, masks and embeddings",
+    "explanation": "input_ids contains vocabulary indices [B,L]. An embedding table uses each ID to select a row. Embedding supports integer index tensors (int32 or int64); tokenizer outputs normally use torch.long. float32 IDs are not valid indices. attention_mask usually marks valid tokens with 1 and padding with 0; it is not a replacement for IDs. BERT token_type_ids marks segments, commonly 0 for sentence A and 1 for sentence B. Not every transformer accepts or needs token_type_ids. Token IDs do not need gradients; the selected embedding WEIGHTS do. Only convert values already known to be integer IDs; casting arbitrary fractional values is not validation.",
+    "prediction": "Predict embedding output shape for IDs [2,5] and embedding dimension 4. Which requires gradients: IDs or the embedding weights?",
+    "task": "Return a NEW dict with input_ids and attention_mask as torch.long, plus token_type_ids as torch.long if present. Omit labels. Supplied ID values are already integer-valued. Do not mutate the original dictionary or tensors in place.",
+    "task_file": "exercises/task_09.py"
+  },
+  {
+    "number": 10,
+    "title": "Debugging the pipeline boundaries",
+    "explanation": "Inspect the smallest boundary that explains the failure. Dataset: one record and its field types. Collator: list of records in, tensor dictionary out. Model: input keys, shapes, dtypes and devices. Loss: output type, raw score shape, labels and scalar differentiable loss. Backward: connected parameter gradients. Optimizer: parameter object membership and learning rate. After step: independent before/after snapshots. Use type, shape, dtype, device and requires_grad; inspect .grad on parameters. breakpoint() opens pdb at the current line. Use p expression, n (next), s (step), c (continue), and q (quit). Run this lesson with --pdb to pause before backward and after step.",
+    "prediction": "At the breakpoint before backward, will loss.requires_grad be True while parameter.grad is None? Which inspection distinguishes an excluded parameter from a frozen one?",
+    "task": "Return one dictionary per tensor key: shape as tuple, dtype as str, device as str, and requires_grad as bool. Include labels. Do not change the batch.",
+    "task_file": "exercises/task_10.py"
+  },
+  {
+    "number": 11,
+    "title": "The training loop, one state change at a time",
+    "explanation": "zero_grad clears managed gradient buffers; weights stay unchanged. Forward creates outputs and a graph; in this tiny Linear/Tanh model weights and buffers stay unchanged. Some models also change running buffers during forward, such as BatchNorm in train mode. Loss adds a scalar objective to the graph. backward accumulates gradients; weights and optimizer moments stay unchanged. step updates managed weights and optimizer state; it normally leaves gradients stored. Use a fresh forward on each iteration. The toy examples isolate these concepts before applying them to BERT.",
+    "prediction": "After each of the five lines, predict: weights changed? gradients present? AdamW state allocated? Which line must be rerun to build the next graph?",
+    "task": "Perform one standard training step with F.cross_entropy and return the loss as a Python float. Clear old optimizer gradients before the forward. Keep the loss graph until backward; then step.",
+    "task_file": "exercises/task_11.py"
+  }
+]

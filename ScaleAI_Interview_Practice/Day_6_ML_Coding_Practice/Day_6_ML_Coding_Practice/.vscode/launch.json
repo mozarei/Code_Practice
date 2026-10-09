@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Day 6 interactive lessons",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/run_labs.py",
+      "args": [
+        "--lesson",
+        "1"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Day 6 training",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/train.py",
+      "args": [
+        "--csv",
+        "${workspaceFolder}/fixtures/reference_train.csv"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

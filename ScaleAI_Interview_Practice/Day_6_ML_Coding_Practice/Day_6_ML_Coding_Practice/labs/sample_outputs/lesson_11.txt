@@ -1,0 +1,33 @@
+
+=== LESSON 11: The training loop, one state change at a time ===
+
+Initial
+max deltas: {'backbone.0.weight': 0.0, 'backbone.0.bias': 0.0, 'classifier.weight': 0.0, 'classifier.bias': 0.0}
+gradient norms: {'backbone.0.weight': None, 'backbone.0.bias': None, 'classifier.weight': None, 'classifier.bias': None} optimizer state entries: 0
+
+1. zero_grad
+max deltas: {'backbone.0.weight': 0.0, 'backbone.0.bias': 0.0, 'classifier.weight': 0.0, 'classifier.bias': 0.0}
+gradient norms: {'backbone.0.weight': None, 'backbone.0.bias': None, 'classifier.weight': None, 'classifier.bias': None} optimizer state entries: 0
+
+2. forward
+max deltas: {'backbone.0.weight': 0.0, 'backbone.0.bias': 0.0, 'classifier.weight': 0.0, 'classifier.bias': 0.0}
+gradient norms: {'backbone.0.weight': None, 'backbone.0.bias': None, 'classifier.weight': None, 'classifier.bias': None} optimizer state entries: 0
+
+3. loss
+max deltas: {'backbone.0.weight': 0.0, 'backbone.0.bias': 0.0, 'classifier.weight': 0.0, 'classifier.bias': 0.0}
+gradient norms: {'backbone.0.weight': None, 'backbone.0.bias': None, 'classifier.weight': None, 'classifier.bias': None} optimizer state entries: 0
+loss= 0.6227049827575684 requires_grad= True
+
+4. backward
+max deltas: {'backbone.0.weight': 0.0, 'backbone.0.bias': 0.0, 'classifier.weight': 0.0, 'classifier.bias': 0.0}
+gradient norms: {'backbone.0.weight': 0.583796, 'backbone.0.bias': 0.161471, 'classifier.weight': 0.565868, 'classifier.bias': 0.162365} optimizer state entries: 0
+
+5. step
+max deltas: {'backbone.0.weight': 0.01000000536441803, 'backbone.0.bias': 0.01000000536441803, 'classifier.weight': 0.01000000536441803, 'classifier.bias': 0.009999997913837433}
+gradient norms: {'backbone.0.weight': 0.583796, 'backbone.0.bias': 0.161471, 'classifier.weight': 0.565868, 'classifier.bias': 0.162365} optimizer state entries: 4
+
+6. next iteration clear
+max deltas: {'backbone.0.weight': 0.01000000536441803, 'backbone.0.bias': 0.01000000536441803, 'classifier.weight': 0.01000000536441803, 'classifier.bias': 0.009999997913837433}
+gradient norms: {'backbone.0.weight': None, 'backbone.0.bias': None, 'classifier.weight': None, 'classifier.bias': None} optimizer state entries: 4
+
+--- Expected exception tracebacks (where demonstrated) ---

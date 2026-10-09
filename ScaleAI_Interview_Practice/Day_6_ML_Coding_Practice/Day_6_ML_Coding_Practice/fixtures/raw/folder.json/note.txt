@@ -1,0 +1,1 @@
+A directory ending in .json is not an input file.

@@ -1,0 +1,25 @@
+
+=== LESSON 02: Parameters, requires_grad and .grad ===
+BEFORE backward
+name | requires_grad | grad norm | in optimizer | max weight change
+unused | True | None | False | 0.00000000
+backbone.0.weight | True | None | False | 0.00000000
+backbone.0.bias | True | None | False | 0.00000000
+classifier.weight | True | None | False | 0.00000000
+classifier.bias | True | None | False | 0.00000000
+AFTER backward
+name | requires_grad | grad norm | in optimizer | max weight change
+unused | True | None | False | 0.00000000
+backbone.0.weight | True | 0.583796 | False | 0.00000000
+backbone.0.bias | True | 0.161471 | False | 0.00000000
+classifier.weight | True | 0.565868 | False | 0.00000000
+classifier.bias | True | 0.162365 | False | 0.00000000
+AFTER clearing
+name | requires_grad | grad norm | in optimizer | max weight change
+unused | True | None | False | 0.00000000
+backbone.0.weight | True | None | False | 0.00000000
+backbone.0.bias | True | None | False | 0.00000000
+classifier.weight | True | None | False | 0.00000000
+classifier.bias | True | None | False | 0.00000000
+
+--- Expected exception tracebacks (where demonstrated) ---

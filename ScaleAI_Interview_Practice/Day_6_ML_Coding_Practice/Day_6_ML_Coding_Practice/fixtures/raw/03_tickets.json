@@ -1,0 +1,93 @@
+{
+  "tickets": [
+    {
+      "payload": {
+        "title": "  Request 15  ",
+        "paragraphs": [
+          "  Please process request 15 using the documented procedure.  ",
+          "   ",
+          " Additional detail 15. "
+        ]
+      },
+      "routing": "normal",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 16  ",
+        "paragraphs": [
+          "  Please process request 16 using the documented procedure.  ",
+          "   ",
+          " Additional detail 16. "
+        ]
+      },
+      "routing": "review",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 17  ",
+        "paragraphs": [
+          "  Please process request 17 using the documented procedure.  ",
+          "   ",
+          " Additional detail 17. "
+        ]
+      },
+      "routing": "normal",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 18  ",
+        "paragraphs": [
+          "  Please process request 18 using the documented procedure.  ",
+          "   ",
+          " Additional detail 18. "
+        ]
+      },
+      "routing": "review",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 19  ",
+        "paragraphs": [
+          "  Please process request 19 using the documented procedure.  ",
+          "   ",
+          " Additional detail 19. "
+        ]
+      },
+      "routing": "normal",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 20  ",
+        "paragraphs": [
+          "  Please process request 20 using the documented procedure.  ",
+          "   ",
+          " Additional detail 20. "
+        ]
+      },
+      "routing": "review",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 21  ",
+        "paragraphs": [
+          "  Please process request 21 using the documented procedure.  ",
+          "   ",
+          " Additional detail 21. "
+        ]
+      },
+      "routing": "normal",
+      "synthetic": false
+    },
+    {
+      "synthetic": true,
+      "routing": "ignored"
+    }
+  ],
+  "source": "practice"
+}

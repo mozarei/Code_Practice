@@ -1,0 +1,32 @@
+
+=== LESSON 09: Token IDs, masks and embeddings ===
+input_ids shape= (2, 4) dtype= torch.int64 values= [[101, 7592, 2088, 102], [101, 7632, 102, 0]]
+token_type_ids shape= (2, 4) dtype= torch.int64 values= [[0, 0, 0, 0], [0, 0, 0, 0]]
+attention_mask shape= (2, 4) dtype= torch.int64 values= [[1, 1, 1, 1], [1, 1, 1, 0]]
+First tokens: ['[CLS]', 'hello', 'world', '[SEP]']
+Embedding output: (2, 4, 4) requires_grad= True
+First output equals selected row: True
+
+EXPECTED FAILURE: floating token indices
+BERT pair segment IDs: [[0, 0, 0, 0, 1, 1, 1]]
+
+--- Expected exception tracebacks (where demonstrated) ---
+Traceback (most recent call last):
+  File "Day_6_ML_Coding_Practice/labs/common.py", line 45, in expected_error
+    operation()
+  File "Day_6_ML_Coding_Practice/labs/lesson_09.py", line 16, in <lambda>
+    expected_error('floating token indices', lambda: table(inputs['input_ids'].float()))
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ab0bf07ae82f/day3_runtime/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ab0bf07ae82f/day3_runtime/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ab0bf07ae82f/day3_runtime/lib/python3.12/site-packages/torch/nn/modules/sparse.py", line 190, in forward
+    return F.embedding(
+           ^^^^^^^^^^^^
+  File "/workspace/scratch/ab0bf07ae82f/day3_runtime/lib/python3.12/site-packages/torch/nn/functional.py", line 2551, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected tensor for argument #1 'indices' to have one of the following scalar types: Long, Int; but got torch.FloatTensor instead (while checking arguments for embedding)

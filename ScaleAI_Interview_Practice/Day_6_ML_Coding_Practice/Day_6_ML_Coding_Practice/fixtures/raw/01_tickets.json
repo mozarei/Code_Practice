@@ -1,0 +1,92 @@
+{
+  "tickets": [
+    {
+      "payload": {
+        "title": "  Request 1  ",
+        "paragraphs": [
+          "  Please process request 1 using the documented procedure.  ",
+          "   ",
+          " Additional detail 1. "
+        ]
+      },
+      "routing": "normal",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 2  ",
+        "paragraphs": [
+          "  Please process request 2 using the documented procedure.  ",
+          "   ",
+          " Additional detail 2. "
+        ]
+      },
+      "routing": "review",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 3  ",
+        "paragraphs": [
+          "  Résumé, \"quoted\" example\nسلام  preserve  spaces  ",
+          "   ",
+          " Additional detail 3. "
+        ]
+      },
+      "routing": "normal",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 4  ",
+        "paragraphs": [
+          "  Please process request 4 using the documented procedure.  ",
+          "   ",
+          " Additional detail 4. "
+        ]
+      },
+      "routing": "review",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 5  ",
+        "paragraphs": [
+          "  Please process request 5 using the documented procedure.  ",
+          "   ",
+          " Additional detail 5. "
+        ]
+      },
+      "routing": "normal",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 6  ",
+        "paragraphs": [
+          "  Please process request 6 using the documented procedure.  ",
+          "   ",
+          " Additional detail 6. "
+        ]
+      },
+      "routing": "review",
+      "synthetic": false
+    },
+    {
+      "payload": {
+        "title": "  Request 7  ",
+        "paragraphs": [
+          "  Please process request 7 using the documented procedure.  ",
+          "   ",
+          " Additional detail 7. "
+        ]
+      },
+      "routing": "normal",
+      "synthetic": false
+    },
+    {
+      "synthetic": true
+    }
+  ],
+  "source": "practice"
+}

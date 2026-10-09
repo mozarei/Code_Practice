@@ -1,0 +1,26 @@
+
+=== LESSON 03: Forward, logits and the computation graph ===
+logits: tensor([[-0.5816,  0.1607],
+        [-0.7976,  0.8998],
+        [-0.0791,  0.0029],
+        [-0.1511, -0.4901]], grad_fn=<AddmmBackward0>) shape: (4, 2)
+logits graph: AddmmBackward0
+loss: 0.6227049827575684 graph: NllLossBackward0
+detached: False None cpu
+
+EXPECTED FAILURE: backward through detached loss
+no_grad output: False None
+eval output still tracks: True
+
+--- Expected exception tracebacks (where demonstrated) ---
+Traceback (most recent call last):
+  File "Day_6_ML_Coding_Practice/labs/common.py", line 45, in expected_error
+    operation()
+  File "/workspace/scratch/ab0bf07ae82f/day3_runtime/lib/python3.12/site-packages/torch/_tensor.py", line 648, in backward
+    torch.autograd.backward(
+  File "/workspace/scratch/ab0bf07ae82f/day3_runtime/lib/python3.12/site-packages/torch/autograd/__init__.py", line 353, in backward
+    _engine_run_backward(
+  File "/workspace/scratch/ab0bf07ae82f/day3_runtime/lib/python3.12/site-packages/torch/autograd/graph.py", line 824, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn

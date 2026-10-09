@@ -1,0 +1,72 @@
+
+=== LESSON 08: Classification shapes and dtypes ===
+
+B= 4 logits= (4, 2) torch.float32
+labels= (4,) torch.int64 column= (4, 1) squeeze= (4,) squeeze(-1)= (4,)
+
+EXPECTED FAILURE: column-shaped targets
+
+EXPECTED FAILURE: float class-index targets
+Correct scalar loss: 0.688020646572113 gradient shape: (4, 2)
+
+B= 1 logits= (1, 2) torch.float32
+labels= (1,) torch.int64 column= (1, 1) squeeze= () squeeze(-1)= (1,)
+
+EXPECTED FAILURE: column-shaped targets
+
+EXPECTED FAILURE: float class-index targets
+
+EXPECTED FAILURE: scalar targets with batched logits
+Correct scalar loss: 0.47078853845596313 gradient shape: (1, 2)
+
+--- Expected exception tracebacks (where demonstrated) ---
+Traceback (most recent call last):
+  File "Day_6_ML_Coding_Practice/labs/common.py", line 45, in expected_error
+    operation()
+  File "Day_6_ML_Coding_Practice/labs/lesson_08.py", line 13, in <lambda>
+    expected_error('column-shaped targets', lambda: F.cross_entropy(logits, column))
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ab0bf07ae82f/day3_runtime/lib/python3.12/site-packages/torch/nn/functional.py", line 3494, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: 0D or 1D target tensor expected, multi-target not supported
+Traceback (most recent call last):
+  File "Day_6_ML_Coding_Practice/labs/common.py", line 45, in expected_error
+    operation()
+  File "Day_6_ML_Coding_Practice/labs/lesson_08.py", line 14, in <lambda>
+    expected_error('float class-index targets', lambda: F.cross_entropy(logits, labels.float()))
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ab0bf07ae82f/day3_runtime/lib/python3.12/site-packages/torch/nn/functional.py", line 3494, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: expected scalar type Long but found Float
+Traceback (most recent call last):
+  File "Day_6_ML_Coding_Practice/labs/common.py", line 45, in expected_error
+    operation()
+  File "Day_6_ML_Coding_Practice/labs/lesson_08.py", line 13, in <lambda>
+    expected_error('column-shaped targets', lambda: F.cross_entropy(logits, column))
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ab0bf07ae82f/day3_runtime/lib/python3.12/site-packages/torch/nn/functional.py", line 3494, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: 0D or 1D target tensor expected, multi-target not supported
+Traceback (most recent call last):
+  File "Day_6_ML_Coding_Practice/labs/common.py", line 45, in expected_error
+    operation()
+  File "Day_6_ML_Coding_Practice/labs/lesson_08.py", line 14, in <lambda>
+    expected_error('float class-index targets', lambda: F.cross_entropy(logits, labels.float()))
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ab0bf07ae82f/day3_runtime/lib/python3.12/site-packages/torch/nn/functional.py", line 3494, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: expected scalar type Long but found Float
+Traceback (most recent call last):
+  File "Day_6_ML_Coding_Practice/labs/common.py", line 45, in expected_error
+    operation()
+  File "Day_6_ML_Coding_Practice/labs/lesson_08.py", line 16, in <lambda>
+    expected_error('scalar targets with batched logits', lambda: F.cross_entropy(logits, column.squeeze()))
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ab0bf07ae82f/day3_runtime/lib/python3.12/site-packages/torch/nn/functional.py", line 3494, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Expected input batch_size (1) to match target batch_size (0).
