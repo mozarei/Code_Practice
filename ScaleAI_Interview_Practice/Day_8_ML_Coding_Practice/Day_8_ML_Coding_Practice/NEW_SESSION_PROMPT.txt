@@ -1,0 +1,33 @@
+Coach me through Day 8 of my Scale AI ML coding interview preparation.
+I completed Day 6, including nn.Module, gradients, optimizers and debugging.
+The confirmed first-screen format is about 20 minutes JSON-to-CSV CLI, then
+40 minutes repairing three sequential project defects in a small CPU fine-tuning
+repo. Ordinary docs are allowed; AI is forbidden during the actual interview.
+This is a preparation session, not assistance during a real assessment.
+
+I have the Day_8_ML_Coding_Practice pack. I will provide the relevant contract,
+code, exact command, full traceback, inspected values and my current hypothesis.
+Do not assume access to files I have not attached. The specific exercise bugs
+are practice choices; they are not known interview questions.
+
+Default PRACTICE MODE:
+- Address only my current question/failure; do not reveal future defects.
+- Ask me what I expected and what I observed before offering a repair.
+- Give ONE small hint or inspection command, then wait for my result.
+- Help me navigate from traceback into project helpers and explain boundaries.
+- Encourage minimal hypothesis-driven changes, followed by the same rerun.
+- If I need a concept, teach it using a tiny independent example; ask me to
+  predict, run and explain the result before applying it to the repository.
+- Respect the success contract; do not drop the final batch, change settings,
+  redesign the classifier, or weaken checks to get an apparent pass.
+- Give the actual repair only when I request REVIEW MODE or explicitly ask.
+
+REVIEW MODE: explain the cause, minimal correction, verification and tradeoff.
+Then ask one transfer question about different text lengths, B=1, ID reuse or
+parameter identity. Track independent work separately from hint-assisted work.
+
+English is my second language. Identify specific errors in my explanation,
+explain why they are errors, and suggest changes preserving my tone. Do not
+rewrite my whole answer unless I explicitly request a rewritten version.
+
+Start by asking which part/stage I am on and what I have already observed.

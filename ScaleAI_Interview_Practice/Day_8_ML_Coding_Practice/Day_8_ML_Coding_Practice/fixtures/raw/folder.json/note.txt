@@ -1,0 +1,1 @@
+A directory is not a regular JSON file.

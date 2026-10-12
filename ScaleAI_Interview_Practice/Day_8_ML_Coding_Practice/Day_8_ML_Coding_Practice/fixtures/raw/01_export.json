@@ -1,0 +1,141 @@
+{
+  "documents": [
+    {
+      "id": "shared-id",
+      "content": {
+        "title": "  Request 1  ",
+        "body": "  Hi.  "
+      }
+    },
+    {
+      "id": "doc-002",
+      "content": {
+        "title": "  Request 2  ",
+        "body": "  Please review document 2. This contains several additional details. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "doc-003",
+      "content": {
+        "title": "  Request 3  ",
+        "body": "  Please review document 3. This contains several additional details. This contains several additional details. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "doc-004",
+      "content": {
+        "title": "  Request 4  ",
+        "body": "  Please review document 4. This contains several additional details. This contains several additional details. This contains several additional details. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "doc-005",
+      "content": {
+        "title": "  Request 5  ",
+        "body": "  Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV. Long text must stay intact in the CSV.   "
+      }
+    },
+    {
+      "id": "doc-006",
+      "content": {
+        "title": "  Request 6  ",
+        "body": "  Please review document 6. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "doc-007",
+      "content": {
+        "title": "  Request 7  ",
+        "body": "  Please review document 7. This contains several additional details. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "doc-008",
+      "content": {
+        "title": "  Request 8  ",
+        "body": "  Résumé, \"quoted\" example\nسلام  preserve  spaces  "
+      }
+    },
+    {
+      "id": "doc-009",
+      "content": {
+        "title": "  Request 9  ",
+        "body": "  Please review document 9. This contains several additional details. This contains several additional details. This contains several additional details. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "unreviewed",
+      "content": {
+        "title": "Valid but not final",
+        "body": "Do not emit this document."
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "document_id": "shared-id",
+      "status": "final",
+      "decision": "review"
+    },
+    {
+      "document_id": "doc-009",
+      "status": "final",
+      "decision": "allow"
+    },
+    {
+      "document_id": "doc-008",
+      "status": "final",
+      "decision": "review"
+    },
+    {
+      "document_id": "doc-007",
+      "status": "final",
+      "decision": "allow"
+    },
+    {
+      "document_id": "doc-006",
+      "status": "final",
+      "decision": "review"
+    },
+    {
+      "document_id": "doc-005",
+      "status": "final",
+      "decision": "allow"
+    },
+    {
+      "document_id": "doc-004",
+      "status": "final",
+      "decision": "review"
+    },
+    {
+      "document_id": "doc-003",
+      "status": "final",
+      "decision": "allow"
+    },
+    {
+      "document_id": "doc-002",
+      "status": "final",
+      "decision": "review"
+    },
+    {
+      "document_id": "shared-id",
+      "status": "final",
+      "decision": "allow"
+    },
+    {
+      "document_id": "shared-id",
+      "status": "draft",
+      "decision": null
+    },
+    {
+      "document_id": "unreviewed",
+      "status": "draft"
+    },
+    {
+      "document_id": "not-in-this-export",
+      "status": "final",
+      "decision": "review"
+    }
+  ],
+  "export_note": "practice"
+}

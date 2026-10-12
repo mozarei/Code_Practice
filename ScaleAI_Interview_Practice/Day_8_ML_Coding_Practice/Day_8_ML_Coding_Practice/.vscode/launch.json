@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Day 8 converter",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/convert.py",
+      "args": [
+        "--input-dir",
+        "${workspaceFolder}/fixtures/raw",
+        "--output-csv",
+        "${workspaceFolder}/output/train.csv"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Day 8 training",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/train.py",
+      "args": [
+        "--csv",
+        "${workspaceFolder}/fixtures/reference_train.csv"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

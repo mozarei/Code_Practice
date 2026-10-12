@@ -1,0 +1,153 @@
+{
+  "documents": [
+    {
+      "id": "shared-id",
+      "content": {
+        "title": "  Request 10  ",
+        "body": "  Please review document 10. This contains several additional details. This contains several additional details. This contains several additional details. This contains several additional details. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "doc-011",
+      "content": {
+        "title": "  Request 11  ",
+        "body": "  Please review document 11. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "doc-012",
+      "content": {
+        "title": "  Request 12  ",
+        "body": "  Please review document 12. This contains several additional details. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "doc-013",
+      "content": {
+        "title": "  Request 13  ",
+        "body": "  Please review document 13. This contains several additional details. This contains several additional details. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "doc-014",
+      "content": {
+        "title": "  Request 14  ",
+        "body": "  Please review document 14. This contains several additional details. This contains several additional details. This contains several additional details. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "doc-015",
+      "content": {
+        "title": "  Request 15  ",
+        "body": "  Please review document 15. This contains several additional details. This contains several additional details. This contains several additional details. This contains several additional details. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "doc-016",
+      "content": {
+        "title": "  Request 16  ",
+        "body": "  Please review document 16. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "doc-017",
+      "content": {
+        "title": "  Request 17  ",
+        "body": "  Please review document 17. This contains several additional details. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "doc-018",
+      "content": {
+        "title": "  Request 18  ",
+        "body": "  Please review document 18. This contains several additional details. This contains several additional details. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "doc-019",
+      "content": {
+        "title": "  Request 19  ",
+        "body": "  Please review document 19. This contains several additional details. This contains several additional details. This contains several additional details. This contains several additional details.   "
+      }
+    },
+    {
+      "id": "unreviewed",
+      "content": {
+        "title": "Valid but not final",
+        "body": "Do not emit this document."
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "document_id": "shared-id",
+      "status": "final",
+      "decision": "allow"
+    },
+    {
+      "document_id": "doc-019",
+      "status": "final",
+      "decision": "allow"
+    },
+    {
+      "document_id": "doc-018",
+      "status": "final",
+      "decision": "review"
+    },
+    {
+      "document_id": "doc-017",
+      "status": "final",
+      "decision": "allow"
+    },
+    {
+      "document_id": "doc-016",
+      "status": "final",
+      "decision": "review"
+    },
+    {
+      "document_id": "doc-015",
+      "status": "final",
+      "decision": "allow"
+    },
+    {
+      "document_id": "doc-014",
+      "status": "final",
+      "decision": "review"
+    },
+    {
+      "document_id": "doc-013",
+      "status": "final",
+      "decision": "allow"
+    },
+    {
+      "document_id": "doc-012",
+      "status": "final",
+      "decision": "review"
+    },
+    {
+      "document_id": "doc-011",
+      "status": "final",
+      "decision": "allow"
+    },
+    {
+      "document_id": "shared-id",
+      "status": "final",
+      "decision": "review"
+    },
+    {
+      "document_id": "shared-id",
+      "status": "draft",
+      "decision": null
+    },
+    {
+      "document_id": "unreviewed",
+      "status": "draft"
+    },
+    {
+      "document_id": "not-in-this-export",
+      "status": "final",
+      "decision": "review"
+    }
+  ],
+  "export_note": "practice"
+}
