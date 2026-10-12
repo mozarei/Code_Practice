@@ -2,6 +2,7 @@ from contextlib import nullcontext
 import torch
 from torch import nn
 from transformers import AutoModelForSequenceClassification
+
 class TicketClassifier(nn.Module):
     def __init__(self,checkpoint):
         super().__init__()
