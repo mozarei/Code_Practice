@@ -1,1 +1,17 @@
+# Local Python environments
 venv/
+.venv/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local model assets and generated training results
+models/
+output/
+checkpoints/
+*.safetensors
+
+# macOS metadata
+.DS_Store
