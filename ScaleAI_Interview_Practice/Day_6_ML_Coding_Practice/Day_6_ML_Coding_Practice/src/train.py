@@ -47,7 +47,12 @@ def main():
             labels=batch["labels"].to("cpu")
             if args.debug and steps==0:
                 breakpoint()
+            #TypeError: TicketClassifier.forward() got an unexpected keyword argument 'token_ids'
+            # breakpoint()
+            # inputs["input_ids"] = inputs.pop("token_ids")
             logits=model(**inputs)
+            #ValueError: Expected input batch_size (1) to match target batch_size (0).
+            # breakpoint()
             loss=classification_loss(logits,labels)
 
             value=float(loss.detach())
