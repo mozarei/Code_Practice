@@ -9,6 +9,6 @@ def unzip(zipfile_path, Dest):
 if __name__ == "__main__":
 
     unzip(
-        "/Users/mzarei/Desktop/Practices/Code_Practice/ScaleAI_Interview_Practice/Day_8_ML_Coding_Practice.zip",
-        "Day_8_ML_Coding_Practice"
+        "/Users/moe/Desktop/Code_Practice/Code_Practice/ScaleAI_Interview_Practice/ML_Interview_Pattern_Practice.zip",
+        "ML_Interview_Pattern_Practice"
     )

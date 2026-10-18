@@ -1,0 +1,38 @@
+{
+  "B": 2,
+  "L": 10,
+  "H": 128,
+  "C": 2,
+  "V": 30522,
+  "token_counts": [
+    5,
+    10
+  ],
+  "shapes": {
+    "input_ids": [
+      2,
+      10
+    ],
+    "last_hidden_state": [
+      2,
+      10,
+      128
+    ],
+    "pooler_output": [
+      2,
+      128
+    ],
+    "classifier_weight": [
+      2,
+      128
+    ],
+    "logits": [
+      2,
+      2
+    ],
+    "labels": [
+      2
+    ],
+    "loss": []
+  }
+}

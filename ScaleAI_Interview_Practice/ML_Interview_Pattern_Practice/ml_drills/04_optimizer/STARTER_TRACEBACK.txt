@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "PACK_WORKSPACE/verify_patterns.py", line 30, in <module>
+    with contextlib.redirect_stdout(output):train(candidate,PACK/'fixtures/train.csv',base/'run')
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PACK_WORKSPACE/interview_patterns_pack/common_ml.py", line 65, in train
+    gradient_contract(model,optimizer)
+  File "PACK_WORKSPACE/interview_patterns_pack/common_ml.py", line 36, in gradient_contract
+    if not owned<=live:raise RuntimeError('Optimizer includes parameters from a different model')
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Optimizer includes parameters from a different model

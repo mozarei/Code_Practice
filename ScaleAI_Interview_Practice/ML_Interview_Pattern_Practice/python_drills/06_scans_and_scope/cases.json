@@ -1,0 +1,320 @@
+{
+  "folder": "06_scans_and_scope",
+  "title": "Flattening, partial batches and per-file scope",
+  "problems": [
+    {
+      "number": 1,
+      "function": "flatten_paragraphs",
+      "contract": "Valid documents contain id, label and a list of string paragraphs. Emit {document_id,text,label} for each nonblank stripped paragraph, in document order then paragraph order. Preserve duplicate text and label zero.",
+      "cases": [
+        {
+          "args": [
+            [
+              {
+                "id": "a",
+                "label": 0,
+                "paragraphs": [
+                  " first ",
+                  " ",
+                  "second"
+                ]
+              },
+              {
+                "id": "b",
+                "label": 1,
+                "paragraphs": [
+                  "x",
+                  "x"
+                ]
+              }
+            ]
+          ],
+          "expected": [
+            {
+              "document_id": "a",
+              "text": "first",
+              "label": 0
+            },
+            {
+              "document_id": "a",
+              "text": "second",
+              "label": 0
+            },
+            {
+              "document_id": "b",
+              "text": "x",
+              "label": 1
+            },
+            {
+              "document_id": "b",
+              "text": "x",
+              "label": 1
+            }
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            []
+          ],
+          "expected": [],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              {
+                "id": "a",
+                "label": 0,
+                "paragraphs": [
+                  " "
+                ]
+              }
+            ]
+          ],
+          "expected": [],
+          "error": null
+        }
+      ],
+      "lookup": "nested for loops; list comprehension flatten"
+    },
+    {
+      "number": 2,
+      "function": "chunks",
+      "contract": "Return consecutive list chunks of at most size, retaining the final partial chunk. Empty input returns []. Require actual integer size > 0, rejecting booleans and invalid sizes with ValueError.",
+      "cases": [
+        {
+          "args": [
+            [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            4
+          ],
+          "expected": [
+            [
+              0,
+              1,
+              2,
+              3
+            ],
+            [
+              4,
+              5,
+              6,
+              7
+            ],
+            [
+              8
+            ]
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            [],
+            4
+          ],
+          "expected": [],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              1
+            ],
+            4
+          ],
+          "expected": [
+            [
+              1
+            ]
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              1,
+              2,
+              3,
+              4
+            ],
+            2
+          ],
+          "expected": [
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              1
+            ],
+            0
+          ],
+          "expected": null,
+          "error": "ValueError"
+        },
+        {
+          "args": [
+            [
+              1
+            ],
+            true
+          ],
+          "expected": null,
+          "error": "ValueError"
+        }
+      ],
+      "lookup": "range step; list slicing partial final chunk"
+    },
+    {
+      "number": 3,
+      "function": "rows_per_export",
+      "contract": "Each valid export contains documents {id,text} and reviews {document_id,status,label}. Within EACH export choose the last FINAL label, then emit [text,label] in document order. Skip unreviewed documents; IDs may repeat across exports and must not share decisions.",
+      "cases": [
+        {
+          "args": [
+            [
+              {
+                "documents": [
+                  {
+                    "id": "a",
+                    "text": "first"
+                  }
+                ],
+                "reviews": [
+                  {
+                    "document_id": "a",
+                    "status": "final",
+                    "label": 0
+                  }
+                ]
+              },
+              {
+                "documents": [
+                  {
+                    "id": "a",
+                    "text": "second"
+                  }
+                ],
+                "reviews": [
+                  {
+                    "document_id": "a",
+                    "status": "final",
+                    "label": 1
+                  }
+                ]
+              }
+            ]
+          ],
+          "expected": [
+            [
+              "first",
+              0
+            ],
+            [
+              "second",
+              1
+            ]
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              {
+                "documents": [
+                  {
+                    "id": "a",
+                    "text": "first"
+                  }
+                ],
+                "reviews": [
+                  {
+                    "document_id": "a",
+                    "status": "final",
+                    "label": 0
+                  }
+                ]
+              },
+              {
+                "documents": [
+                  {
+                    "id": "a",
+                    "text": "second"
+                  }
+                ],
+                "reviews": []
+              }
+            ]
+          ],
+          "expected": [
+            [
+              "first",
+              0
+            ]
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            []
+          ],
+          "expected": [],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              {
+                "documents": [
+                  {
+                    "id": "a",
+                    "text": "A"
+                  }
+                ],
+                "reviews": [
+                  {
+                    "document_id": "a",
+                    "status": "final",
+                    "label": 0
+                  },
+                  {
+                    "document_id": "a",
+                    "status": "draft",
+                    "label": 1
+                  }
+                ]
+              }
+            ]
+          ],
+          "expected": [
+            [
+              "A",
+              0
+            ]
+          ],
+          "error": null
+        }
+      ],
+      "lookup": "variable scope; initialize dictionary inside outer loop"
+    }
+  ]
+}

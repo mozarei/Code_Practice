@@ -1,0 +1,210 @@
+{
+  "folder": "04_validation",
+  "title": "Truthiness, strict types and missing fields",
+  "problems": [
+    {
+      "number": 1,
+      "function": "keep_records",
+      "contract": "Keep every record except those whose skip field is exactly boolean True. Missing, None, False, integer 1 and string \"true\" are retained. Records are valid dictionaries.",
+      "cases": [
+        {
+          "args": [
+            [
+              {
+                "skip": true
+              },
+              {
+                "skip": 1
+              },
+              {
+                "skip": "true"
+              },
+              {
+                "skip": false
+              },
+              {
+                "skip": null
+              },
+              {}
+            ]
+          ],
+          "expected": [
+            {
+              "skip": 1
+            },
+            {
+              "skip": "true"
+            },
+            {
+              "skip": false
+            },
+            {
+              "skip": null
+            },
+            {}
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            []
+          ],
+          "expected": [],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              {
+                "skip": true
+              }
+            ]
+          ],
+          "expected": [],
+          "error": null
+        }
+      ],
+      "lookup": "bool subclass of int; identity is vs equality"
+    },
+    {
+      "number": 2,
+      "function": "integer_label",
+      "contract": "Return value only if its actual type is int and it is 0 or 1. Reject booleans, floats, strings, None and other integers with ValueError.",
+      "cases": [
+        {
+          "args": [
+            0
+          ],
+          "expected": 0,
+          "error": null
+        },
+        {
+          "args": [
+            1
+          ],
+          "expected": 1,
+          "error": null
+        },
+        {
+          "args": [
+            true
+          ],
+          "expected": null,
+          "error": "ValueError"
+        },
+        {
+          "args": [
+            false
+          ],
+          "expected": null,
+          "error": "ValueError"
+        },
+        {
+          "args": [
+            0.0
+          ],
+          "expected": null,
+          "error": "ValueError"
+        },
+        {
+          "args": [
+            "0"
+          ],
+          "expected": null,
+          "error": "ValueError"
+        },
+        {
+          "args": [
+            null
+          ],
+          "expected": null,
+          "error": "ValueError"
+        },
+        {
+          "args": [
+            2
+          ],
+          "expected": null,
+          "error": "ValueError"
+        }
+      ],
+      "lookup": "isinstance bool int; type exact type check"
+    },
+    {
+      "number": 3,
+      "function": "field_state",
+      "contract": "Return \"missing\" if key absent, \"null\" for None, \"empty\" for the exact empty string, otherwise \"value\". Zero, False, whitespace strings and empty lists are values.",
+      "cases": [
+        {
+          "args": [
+            {},
+            "x"
+          ],
+          "expected": "missing",
+          "error": null
+        },
+        {
+          "args": [
+            {
+              "x": null
+            },
+            "x"
+          ],
+          "expected": "null",
+          "error": null
+        },
+        {
+          "args": [
+            {
+              "x": ""
+            },
+            "x"
+          ],
+          "expected": "empty",
+          "error": null
+        },
+        {
+          "args": [
+            {
+              "x": 0
+            },
+            "x"
+          ],
+          "expected": "value",
+          "error": null
+        },
+        {
+          "args": [
+            {
+              "x": false
+            },
+            "x"
+          ],
+          "expected": "value",
+          "error": null
+        },
+        {
+          "args": [
+            {
+              "x": []
+            },
+            "x"
+          ],
+          "expected": "value",
+          "error": null
+        },
+        {
+          "args": [
+            {
+              "x": " "
+            },
+            "x"
+          ],
+          "expected": "value",
+          "error": null
+        }
+      ],
+      "lookup": "dict.get default sentinel; in operator"
+    }
+  ]
+}

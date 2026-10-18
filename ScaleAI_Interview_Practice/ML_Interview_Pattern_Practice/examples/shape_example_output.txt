@@ -1,0 +1,31 @@
+Original text count: 2
+Token counts before padding: [5, 10]
+input_ids                shape=(2, 10)         dtype=torch.int64   requires_grad=False
+token_type_ids           shape=(2, 10)         dtype=torch.int64   requires_grad=False
+attention_mask           shape=(2, 10)         dtype=torch.int64   requires_grad=False
+First token sequence: ['[CLS]', 'hello', 'world', '.', '[SEP]', '[PAD]', '[PAD]', '[PAD]', '[PAD]', '[PAD]']
+word lookup              shape=(2, 10, 128)    dtype=torch.float32 requires_grad=True
+combined embeddings      shape=(2, 10, 128)    dtype=torch.float32 requires_grad=True
+last_hidden_state        shape=(2, 10, 128)    dtype=torch.float32 requires_grad=True
+pooler_output            shape=(2, 128)        dtype=torch.float32 requires_grad=True
+dropout output           shape=(2, 128)        dtype=torch.float32 requires_grad=True
+classifier.weight        shape=(2, 128)        dtype=torch.float32 requires_grad=True
+classifier.bias          shape=(2,)            dtype=torch.float32 requires_grad=True
+logits                   shape=(2, 2)          dtype=torch.float32 requires_grad=True
+labels                   shape=(2,)            dtype=torch.int64   requires_grad=False
+loss                     shape=()              dtype=torch.float32 requires_grad=True
+probabilities            shape=(2, 2)          dtype=torch.float32 requires_grad=True
+predicted classes        shape=(2,)            dtype=torch.int64   requires_grad=False
+Cross-entropy above used RAW logits, not the displayed probabilities.
+Before backward: classifier.grad = None
+classifier.weight.grad   shape=(2, 128)        dtype=torch.float32 requires_grad=False
+After backward, weight unchanged: True
+After step, max weight change: 0.00010006129741668701
+B=1 logits               shape=(1, 2)          dtype=torch.float32 requires_grad=True
+B=1 labels               shape=(1,)            dtype=torch.int64   requires_grad=False
+B=1 loss                 shape=()              dtype=torch.float32 requires_grad=True
+[1,1].squeeze() -> ()
+[1,1].squeeze(-1) -> (1,)
+detach shares storage: True
+detach+clone shares storage: False
+SHAPE_LAB_COMPLETE

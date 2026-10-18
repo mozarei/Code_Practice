@@ -1,0 +1,211 @@
+{
+  "folder": "05_sorting_grouping",
+  "title": "Ordering contracts and grouping",
+  "problems": [
+    {
+      "number": 1,
+      "function": "sort_export_names",
+      "contract": "Names are valid filenames beginning with a positive integer then underscore. Sort by numeric prefix, breaking numeric ties by the full filename lexicographically. This practice contract deliberately differs from ordinary filename sorting.",
+      "cases": [
+        {
+          "args": [
+            [
+              "10_x.json",
+              "2_x.json",
+              "1_x.json"
+            ]
+          ],
+          "expected": [
+            "1_x.json",
+            "2_x.json",
+            "10_x.json"
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              "2_b.json",
+              "02_a.json",
+              "1_x.json"
+            ]
+          ],
+          "expected": [
+            "1_x.json",
+            "02_a.json",
+            "2_b.json"
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            []
+          ],
+          "expected": [],
+          "error": null
+        }
+      ],
+      "lookup": "sorted key tuple int string split"
+    },
+    {
+      "number": 2,
+      "function": "sort_tickets",
+      "contract": "Sort valid ticket objects by severity: critical, high, normal, then any unknown severity. Preserve original order among equal-priority tickets, including different unknown values. Do not sort ties by ID.",
+      "cases": [
+        {
+          "args": [
+            [
+              {
+                "id": "z",
+                "severity": "normal"
+              },
+              {
+                "id": "a",
+                "severity": "critical"
+              },
+              {
+                "id": "b",
+                "severity": "high"
+              }
+            ]
+          ],
+          "expected": [
+            {
+              "id": "a",
+              "severity": "critical"
+            },
+            {
+              "id": "b",
+              "severity": "high"
+            },
+            {
+              "id": "z",
+              "severity": "normal"
+            }
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              {
+                "id": "z",
+                "severity": "high"
+              },
+              {
+                "id": "a",
+                "severity": "high"
+              }
+            ]
+          ],
+          "expected": [
+            {
+              "id": "z",
+              "severity": "high"
+            },
+            {
+              "id": "a",
+              "severity": "high"
+            }
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              {
+                "severity": "zzz"
+              },
+              {
+                "severity": "aaa"
+              }
+            ]
+          ],
+          "expected": [
+            {
+              "severity": "zzz"
+            },
+            {
+              "severity": "aaa"
+            }
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            []
+          ],
+          "expected": [],
+          "error": null
+        }
+      ],
+      "lookup": "Python sorting stability; dict.get default"
+    },
+    {
+      "number": 3,
+      "function": "group_texts",
+      "contract": "Group valid {category,text} records into a plain dictionary category -> list of texts. Preserve text order and duplicates within each group. Include only categories seen in input.",
+      "cases": [
+        {
+          "args": [
+            [
+              {
+                "category": "review",
+                "text": "B"
+              },
+              {
+                "category": "allow",
+                "text": "A"
+              },
+              {
+                "category": "review",
+                "text": "B"
+              }
+            ]
+          ],
+          "expected": {
+            "review": [
+              "B",
+              "B"
+            ],
+            "allow": [
+              "A"
+            ]
+          },
+          "error": null
+        },
+        {
+          "args": [
+            []
+          ],
+          "expected": {},
+          "error": null
+        },
+        {
+          "args": [
+            [
+              {
+                "category": "x",
+                "text": "one"
+              },
+              {
+                "category": "y",
+                "text": "two"
+              }
+            ]
+          ],
+          "expected": {
+            "x": [
+              "one"
+            ],
+            "y": [
+              "two"
+            ]
+          },
+          "error": null
+        }
+      ],
+      "lookup": "collections.defaultdict list; dict.setdefault mutable values"
+    }
+  ]
+}

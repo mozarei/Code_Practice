@@ -1,0 +1,5 @@
+Insert breakpoint() immediately BEFORE the value/operation you want to inspect.
+p expression = print; n = next line; s = step into call; c = continue; q = quit.
+l = nearby source; w = stack; u/d = up/down stack; pp expression = pretty print.
+Pressing Enter repeats the last command. Use p variable to avoid command/name ambiguity.
+If the error happens before a provided pause, insert breakpoint() in that failing helper.

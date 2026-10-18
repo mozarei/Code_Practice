@@ -1,0 +1,271 @@
+{
+  "folder": "02_sets_and_joins",
+  "title": "Sets, dictionaries and stable joins",
+  "problems": [
+    {
+      "number": 1,
+      "function": "stable_unique",
+      "contract": "Return unique string IDs in first-occurrence order. Do not sort and do not mutate the input.",
+      "cases": [
+        {
+          "args": [
+            [
+              "b",
+              "a",
+              "b",
+              "c",
+              "a"
+            ]
+          ],
+          "expected": [
+            "b",
+            "a",
+            "c"
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            []
+          ],
+          "expected": [],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              "a"
+            ]
+          ],
+          "expected": [
+            "a"
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              "A",
+              "a",
+              "A"
+            ]
+          ],
+          "expected": [
+            "A",
+            "a"
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              "",
+              "x",
+              ""
+            ]
+          ],
+          "expected": [
+            "",
+            "x"
+          ],
+          "error": null
+        }
+      ],
+      "lookup": "set membership; dict.fromkeys insertion order"
+    },
+    {
+      "number": 2,
+      "function": "attach_labels",
+      "contract": "Join valid documents {id,text} to the last FINAL review {document_id,status,label}. Return [text,label] rows in document order; skip documents with no final review and ignore unknown IDs. Label 0 must be retained.",
+      "cases": [
+        {
+          "args": [
+            [
+              {
+                "id": "b",
+                "text": "B"
+              },
+              {
+                "id": "a",
+                "text": "A"
+              }
+            ],
+            [
+              {
+                "document_id": "a",
+                "status": "final",
+                "label": 0
+              },
+              {
+                "document_id": "b",
+                "status": "final",
+                "label": 1
+              }
+            ]
+          ],
+          "expected": [
+            [
+              "B",
+              1
+            ],
+            [
+              "A",
+              0
+            ]
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              {
+                "id": "a",
+                "text": "A"
+              }
+            ],
+            [
+              {
+                "document_id": "a",
+                "status": "final",
+                "label": 1
+              },
+              {
+                "document_id": "a",
+                "status": "final",
+                "label": 0
+              },
+              {
+                "document_id": "a",
+                "status": "draft",
+                "label": 1
+              }
+            ]
+          ],
+          "expected": [
+            [
+              "A",
+              0
+            ]
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              {
+                "id": "a",
+                "text": "A"
+              }
+            ],
+            [
+              {
+                "document_id": "other",
+                "status": "final",
+                "label": 1
+              }
+            ]
+          ],
+          "expected": [],
+          "error": null
+        },
+        {
+          "args": [
+            [],
+            [
+              {
+                "document_id": "a",
+                "status": "final",
+                "label": 0
+              }
+            ]
+          ],
+          "expected": [],
+          "error": null
+        }
+      ],
+      "lookup": "dictionary membership vs get; dictionary assignment replaces value"
+    },
+    {
+      "number": 3,
+      "function": "unknown_ids",
+      "contract": "Return unknown document IDs from reviews, once each in first-occurrence order. known_ids is a list of strings; each review has document_id.",
+      "cases": [
+        {
+          "args": [
+            [
+              "a"
+            ],
+            [
+              {
+                "document_id": "x",
+                "status": "final"
+              },
+              {
+                "document_id": "a",
+                "status": "final"
+              },
+              {
+                "document_id": "x",
+                "status": "final"
+              },
+              {
+                "document_id": "y",
+                "status": "final"
+              }
+            ]
+          ],
+          "expected": [
+            "x",
+            "y"
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            [],
+            [
+              {
+                "document_id": "a",
+                "status": "final"
+              },
+              {
+                "document_id": "a",
+                "status": "final"
+              }
+            ]
+          ],
+          "expected": [
+            "a"
+          ],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              "a"
+            ],
+            []
+          ],
+          "expected": [],
+          "error": null
+        },
+        {
+          "args": [
+            [
+              "a"
+            ],
+            [
+              {
+                "document_id": "a",
+                "status": "final"
+              }
+            ]
+          ],
+          "expected": [],
+          "error": null
+        }
+      ],
+      "lookup": "set membership difference; preserve input order"
+    }
+  ]
+}

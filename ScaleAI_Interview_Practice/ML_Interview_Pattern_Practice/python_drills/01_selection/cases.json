@@ -1,0 +1,289 @@
+{
+  "folder": "01_selection",
+  "title": "Selection and last matching records",
+  "problems": [
+    {
+      "number": 1,
+      "function": "last_final",
+      "contract": "Return the LAST review in input order matching document_id and status=\"final\". A later draft does not cancel it. Return None if absent. Inputs are valid objects; compare IDs exactly.",
+      "cases": [
+        {
+          "args": [
+            [
+              {
+                "document_id": "a",
+                "status": "final",
+                "label": 1
+              },
+              {
+                "document_id": "a",
+                "status": "draft"
+              },
+              {
+                "document_id": "a",
+                "status": "final",
+                "label": 0
+              }
+            ],
+            "a"
+          ],
+          "expected": {
+            "document_id": "a",
+            "status": "final",
+            "label": 0
+          },
+          "error": null
+        },
+        {
+          "args": [
+            [],
+            "a"
+          ],
+          "expected": null,
+          "error": null
+        },
+        {
+          "args": [
+            [
+              {
+                "document_id": "b",
+                "status": "final",
+                "label": 1
+              }
+            ],
+            "a"
+          ],
+          "expected": null,
+          "error": null
+        },
+        {
+          "args": [
+            [
+              {
+                "document_id": "a",
+                "status": "final",
+                "label": 0
+              },
+              {
+                "document_id": "a",
+                "status": "draft",
+                "label": 1
+              }
+            ],
+            "a"
+          ],
+          "expected": {
+            "document_id": "a",
+            "status": "final",
+            "label": 0
+          },
+          "error": null
+        },
+        {
+          "args": [
+            [
+              {
+                "document_id": "a ",
+                "status": "final",
+                "label": 1
+              },
+              {
+                "document_id": "a",
+                "status": "final",
+                "label": 0
+              }
+            ],
+            "a "
+          ],
+          "expected": {
+            "document_id": "a ",
+            "status": "final",
+            "label": 1
+          },
+          "error": null
+        }
+      ],
+      "lookup": "reversed next generator default; Python for loop overwrite"
+    },
+    {
+      "number": 2,
+      "function": "latest_final",
+      "contract": "Return the matching FINAL review with greatest integer timestamp. Break timestamp ties by the later input occurrence. Negative timestamps are valid. Return None if absent; input order need not be chronological.",
+      "cases": [
+        {
+          "args": [
+            [
+              {
+                "document_id": "a",
+                "status": "final",
+                "timestamp": 8
+              },
+              {
+                "document_id": "a",
+                "status": "final",
+                "timestamp": 3
+              }
+            ],
+            "a"
+          ],
+          "expected": {
+            "document_id": "a",
+            "status": "final",
+            "timestamp": 8
+          },
+          "error": null
+        },
+        {
+          "args": [
+            [
+              {
+                "document_id": "a",
+                "status": "final",
+                "timestamp": 8,
+                "label": 0
+              },
+              {
+                "document_id": "a",
+                "status": "final",
+                "timestamp": 8,
+                "label": 1
+              }
+            ],
+            "a"
+          ],
+          "expected": {
+            "document_id": "a",
+            "status": "final",
+            "timestamp": 8,
+            "label": 1
+          },
+          "error": null
+        },
+        {
+          "args": [
+            [
+              {
+                "document_id": "a",
+                "status": "final",
+                "timestamp": -7
+              },
+              {
+                "document_id": "a",
+                "status": "final",
+                "timestamp": -3
+              }
+            ],
+            "a"
+          ],
+          "expected": {
+            "document_id": "a",
+            "status": "final",
+            "timestamp": -3
+          },
+          "error": null
+        },
+        {
+          "args": [
+            [
+              {
+                "document_id": "a",
+                "status": "draft",
+                "timestamp": 100
+              },
+              {
+                "document_id": "a",
+                "status": "final",
+                "timestamp": 2
+              }
+            ],
+            "a"
+          ],
+          "expected": {
+            "document_id": "a",
+            "status": "final",
+            "timestamp": 2
+          },
+          "error": null
+        },
+        {
+          "args": [
+            [],
+            "a"
+          ],
+          "expected": null,
+          "error": null
+        }
+      ],
+      "lookup": "max key default; enumerate; tie breaking"
+    },
+    {
+      "number": 3,
+      "function": "first_non_none",
+      "contract": "Return the first value that is not None. Zero, False, empty string and empty containers are valid results. Return None if there is no such value.",
+      "cases": [
+        {
+          "args": [
+            [
+              null,
+              0,
+              7
+            ]
+          ],
+          "expected": 0,
+          "error": null
+        },
+        {
+          "args": [
+            [
+              null,
+              false,
+              "x"
+            ]
+          ],
+          "expected": false,
+          "error": null
+        },
+        {
+          "args": [
+            [
+              null,
+              "",
+              "x"
+            ]
+          ],
+          "expected": "",
+          "error": null
+        },
+        {
+          "args": [
+            [
+              null,
+              [],
+              1
+            ]
+          ],
+          "expected": [],
+          "error": null
+        },
+        {
+          "args": [
+            []
+          ],
+          "expected": null,
+          "error": null
+        },
+        {
+          "args": [
+            [
+              null,
+              null
+            ]
+          ],
+          "expected": null,
+          "error": null
+        }
+      ],
+      "lookup": "Python truth value testing is None"
+    }
+  ]
+}

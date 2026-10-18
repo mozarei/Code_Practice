@@ -1,0 +1,47 @@
+Traceback (most recent call last):
+  File "PACK_WORKSPACE/patterns_runtime/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 795, in convert_to_tensors
+    tensor = as_tensor(value)
+             ^^^^^^^^^^^^^^^^
+  File "PACK_WORKSPACE/patterns_runtime/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 742, in as_tensor
+    return torch.tensor(value, dtype=dtype)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: expected sequence of length 7 at dim 1 (got 13)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "PACK_WORKSPACE/verify_patterns.py", line 30, in <module>
+    with contextlib.redirect_stdout(output):train(candidate,PACK/'fixtures/train.csv',base/'run')
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PACK_WORKSPACE/interview_patterns_pack/common_ml.py", line 51, in train
+    for batch_index,batch in enumerate(loader):
+                             ^^^^^^^^^^^^^^^^^
+  File "PACK_WORKSPACE/patterns_runtime/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "PACK_WORKSPACE/patterns_runtime/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 789, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PACK_WORKSPACE/patterns_runtime/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ml-pattern-qa-nql5oy8j/05_representations/batching.py", line 5, in collate
+    batch=tokenizer(texts,padding=False,truncation=True,max_length=64,return_tensors='pt')
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PACK_WORKSPACE/patterns_runtime/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 2938, in __call__
+    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PACK_WORKSPACE/patterns_runtime/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 3026, in _call_one
+    return self.batch_encode_plus(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "PACK_WORKSPACE/patterns_runtime/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 3227, in batch_encode_plus
+    return self._batch_encode_plus(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PACK_WORKSPACE/patterns_runtime/lib/python3.12/site-packages/transformers/tokenization_utils_fast.py", line 601, in _batch_encode_plus
+    return BatchEncoding(sanitized_tokens, sanitized_encodings, tensor_type=return_tensors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PACK_WORKSPACE/patterns_runtime/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 248, in __init__
+    self.convert_to_tensors(tensor_type=tensor_type, prepend_batch_axis=prepend_batch_axis)
+  File "PACK_WORKSPACE/patterns_runtime/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 811, in convert_to_tensors
+    raise ValueError(
+ValueError: Unable to create tensor, you should probably activate truncation and/or padding with 'padding=True' 'truncation=True' to have batched tensors with the same length. Perhaps your features (`input_ids` in this case) have excessive nesting (inputs type `list` where type `int` is expected).

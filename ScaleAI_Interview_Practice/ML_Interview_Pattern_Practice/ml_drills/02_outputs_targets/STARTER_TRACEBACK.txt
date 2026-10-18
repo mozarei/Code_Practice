@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "PACK_WORKSPACE/verify_patterns.py", line 30, in <module>
+    with contextlib.redirect_stdout(output):train(candidate,PACK/'fixtures/train.csv',base/'run')
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PACK_WORKSPACE/interview_patterns_pack/common_ml.py", line 56, in train
+    loss=m['objective'].classification_loss(logits,labels)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ml-pattern-qa-u92pcktu/02_outputs_targets/objective.py", line 4, in classification_loss
+    return F.cross_entropy(logits,targets)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PACK_WORKSPACE/patterns_runtime/lib/python3.12/site-packages/torch/nn/functional.py", line 3494, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: cross_entropy_loss(): argument 'input' (position 1) must be Tensor, not SequenceClassifierOutput

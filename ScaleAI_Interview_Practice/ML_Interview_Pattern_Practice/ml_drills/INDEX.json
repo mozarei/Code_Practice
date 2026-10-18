@@ -1,0 +1,27 @@
+[
+  {
+    "name": "01_batch_inputs",
+    "title": "Batching and model input contracts",
+    "focus": "Dataset records, tokenizer text input, integer token IDs, padding masks."
+  },
+  {
+    "name": "02_outputs_targets",
+    "title": "Model outputs and classification targets",
+    "focus": "ModelOutput versus Tensor; class-index target dtype; the final batch of one."
+  },
+  {
+    "name": "03_autograd",
+    "title": "Graph connection, clearing and freezing",
+    "focus": "Detached losses, gradient-buffer lifetime and a trainable encoder."
+  },
+  {
+    "name": "04_optimizer",
+    "title": "Optimizer ownership, coverage and settings",
+    "focus": "Equal values versus parameter identity, full fine-tuning, parameter-group LR."
+  },
+  {
+    "name": "05_representations",
+    "title": "Representations and reliable weight snapshots",
+    "focus": "Variable-length batches, sequence features, detach versus an independent copy."
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "folder": "01_selection",
+    "title": "Selection and last matching records"
+  },
+  {
+    "folder": "02_sets_and_joins",
+    "title": "Sets, dictionaries and stable joins"
+  },
+  {
+    "folder": "03_strings",
+    "title": "Immutable strings and precise text assembly"
+  },
+  {
+    "folder": "04_validation",
+    "title": "Truthiness, strict types and missing fields"
+  },
+  {
+    "folder": "05_sorting_grouping",
+    "title": "Ordering contracts and grouping"
+  },
+  {
+    "folder": "06_scans_and_scope",
+    "title": "Flattening, partial batches and per-file scope"
+  }
+]

@@ -1,0 +1,186 @@
+{
+  "folder": "03_strings",
+  "title": "Immutable strings and precise text assembly",
+  "problems": [
+    {
+      "number": 1,
+      "function": "replace_span",
+      "contract": "Return a NEW string replacing the half-open range [start,end). Require 0 <= start <= end <= len(text), otherwise raise ValueError. Python string indices count Unicode code points, not UTF-8 bytes.",
+      "cases": [
+        {
+          "args": [
+            "abcdef",
+            2,
+            4,
+            "XY"
+          ],
+          "expected": "abXYef",
+          "error": null
+        },
+        {
+          "args": [
+            "abc",
+            1,
+            1,
+            "!"
+          ],
+          "expected": "a!bc",
+          "error": null
+        },
+        {
+          "args": [
+            "abc",
+            0,
+            3,
+            ""
+          ],
+          "expected": "",
+          "error": null
+        },
+        {
+          "args": [
+            "سلام",
+            1,
+            3,
+            "X"
+          ],
+          "expected": "سXم",
+          "error": null
+        },
+        {
+          "args": [
+            "abc",
+            -1,
+            2,
+            "x"
+          ],
+          "expected": null,
+          "error": "ValueError"
+        },
+        {
+          "args": [
+            "abc",
+            2,
+            1,
+            "x"
+          ],
+          "expected": null,
+          "error": "ValueError"
+        }
+      ],
+      "lookup": "str immutable sequence slicing half-open range"
+    },
+    {
+      "number": 2,
+      "function": "replace_first",
+      "contract": "Replace only the first LITERAL occurrence of nonempty old. Return unchanged text when absent; reject empty old with ValueError. Dots and brackets are literal characters, not regex syntax.",
+      "cases": [
+        {
+          "args": [
+            "a.b a.b",
+            "a.b",
+            "X"
+          ],
+          "expected": "X a.b",
+          "error": null
+        },
+        {
+          "args": [
+            "aXb a.b",
+            "a.b",
+            "X"
+          ],
+          "expected": "aXb X",
+          "error": null
+        },
+        {
+          "args": [
+            "[x] [x]",
+            "[x]",
+            "Y"
+          ],
+          "expected": "Y [x]",
+          "error": null
+        },
+        {
+          "args": [
+            "abc",
+            "z",
+            "X"
+          ],
+          "expected": "abc",
+          "error": null
+        },
+        {
+          "args": [
+            "abc",
+            "",
+            "X"
+          ],
+          "expected": null,
+          "error": "ValueError"
+        }
+      ],
+      "lookup": "str.replace count; literal vs regular expression"
+    },
+    {
+      "number": 3,
+      "function": "assemble_text",
+      "contract": "Title must be a nonblank string and paragraphs a list of strings. Trim only outer whitespace, discard blank paragraphs, require at least one nonblank paragraph. Return title + newline + paragraphs joined by newline. Preserve internal whitespace and punctuation; raise ValueError for invalid input.",
+      "cases": [
+        {
+          "args": [
+            " T ",
+            [
+              " first ",
+              " ",
+              " second\nline "
+            ]
+          ],
+          "expected": "T\nfirst\nsecond\nline",
+          "error": null
+        },
+        {
+          "args": [
+            "Résumé, \"x\"",
+            [
+              " سلام  keep  spaces "
+            ]
+          ],
+          "expected": "Résumé, \"x\"\nسلام  keep  spaces",
+          "error": null
+        },
+        {
+          "args": [
+            "T",
+            []
+          ],
+          "expected": null,
+          "error": "ValueError"
+        },
+        {
+          "args": [
+            "T",
+            [
+              "a",
+              null
+            ]
+          ],
+          "expected": null,
+          "error": "ValueError"
+        },
+        {
+          "args": [
+            " ",
+            [
+              "a"
+            ]
+          ],
+          "expected": null,
+          "error": "ValueError"
+        }
+      ],
+      "lookup": "str.strip str.join; whitespace preservation"
+    }
+  ]
+}

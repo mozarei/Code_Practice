@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "PACK_WORKSPACE/verify_patterns.py", line 30, in <module>
+    with contextlib.redirect_stdout(output):train(candidate,PACK/'fixtures/train.csv',base/'run')
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PACK_WORKSPACE/interview_patterns_pack/common_ml.py", line 64, in train
+    m['gradients'].backward_loss(loss,optimizer)
+  File "/tmp/ml-pattern-qa-p4i23dk1/03_autograd/gradients.py", line 2, in backward_loss
+    loss.backward()
+  File "PACK_WORKSPACE/patterns_runtime/lib/python3.12/site-packages/torch/_tensor.py", line 648, in backward
+    torch.autograd.backward(
+  File "PACK_WORKSPACE/patterns_runtime/lib/python3.12/site-packages/torch/autograd/__init__.py", line 353, in backward
+    _engine_run_backward(
+  File "PACK_WORKSPACE/patterns_runtime/lib/python3.12/site-packages/torch/autograd/graph.py", line 824, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
