@@ -21,14 +21,18 @@ def main():
     parser.add_argument("--output-dir",type=Path,default=ROOT/"output/run")
     parser.add_argument('--debug',action='store_true',help='Pause on the first batch')
     args=parser.parse_args()
+
     torch.manual_seed(17)
     torch.set_num_threads(2)
+
     tokenizer=AutoTokenizer.from_pretrained(args.checkpoint,local_files_only=True)
     dataset=TextRows(args.csv)
     loader=DataLoader(dataset,batch_size=4,shuffle=False,drop_last=False,collate_fn=make_collator(tokenizer))
     model=ReviewClassifier(args.checkpoint).to("cpu")
+
     model.train()
     optimizer=build_optimizer(model,lr=1e-4)
+
     names={"encoder":"bert.encoder.layer.0.attention.self.query.weight","classifier":"classifier.weight"}
     parameters=dict(model.backbone.named_parameters())
     before={group:parameters[name].detach().clone() for group,name in names.items()}
@@ -41,6 +45,8 @@ def main():
             labels=batch["labels"].to("cpu")
             if args.debug and steps==0:
                 breakpoint()
+            # breakpoint()
+            #RuntimeError: mat1 and mat2 shapes cannot be multiplied (4x33 and 128x2)
             logits=model(**inputs)
             loss=classification_loss(logits,labels)
             value=float(loss.detach())
