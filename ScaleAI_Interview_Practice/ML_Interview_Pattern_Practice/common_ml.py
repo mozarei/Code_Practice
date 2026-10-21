@@ -25,6 +25,7 @@ class TextRows(Dataset):
 def gradient_contract(model,optimizer):
     named=dict(model.backbone.named_parameters())
     head=named[PROBES[1]];encoder=named[PROBES[0]]
+    # breakpoint()
     if head.grad is None:raise RuntimeError('Classifier gradient missing after backward')
     if encoder.grad is None or not encoder.requires_grad:raise RuntimeError('Encoder gradient missing after backward')
     for parameter in model.parameters():
@@ -34,20 +35,26 @@ def gradient_contract(model,optimizer):
     managed=[p for group in optimizer.param_groups for p in group['params']]
     owned={id(p) for p in managed}
     if not owned<=live:raise RuntimeError('Optimizer includes parameters from a different model')
+    # breakpoint()
     if owned!=live:raise RuntimeError('Optimizer omits live trainable parameters')
     if len(managed)!=len(live):raise RuntimeError('Optimizer has duplicate parameters')
     if any(group['lr']!=1e-4 for group in optimizer.param_groups):raise RuntimeError('Optimizer learning rate must be 0.0001')
 def train(directory,csv_path,out,debug=False,quiet=False):
     torch.set_num_threads(2);torch.manual_seed(17)
     checkpoint=ROOT/'models/bert-tiny'
-    m=modules(Path(directory));tokenizer=AutoTokenizer.from_pretrained(checkpoint,local_files_only=True)
-    dataset=TextRows(csv_path);collate=m['batching'].make_collator(tokenizer)
+    m=modules(Path(directory))
+    tokenizer=AutoTokenizer.from_pretrained(checkpoint,local_files_only=True)
+    dataset=TextRows(csv_path)
+    collate=m['batching'].make_collator(tokenizer)
     loader=DataLoader(dataset,batch_size=4,shuffle=False,drop_last=False,collate_fn=collate)
-    model=m['model'].Classifier(checkpoint).to('cpu');model.train()
+    model=m['model'].Classifier(checkpoint).to('cpu')
+    model.train()
     optimizer=m['optim'].build_optimizer(model,lr=1e-4)
     before=m['snapshots'].take_snapshot(model)
     losses=[];sizes=[]
     for epoch in range(2):
+        # ValueError: text input must be of type `str` (single example), `list[str]` (batch or single pretokenized example) or `list[list[str]]` (batch of pretokenized examples).
+        # breakpoint()
         for batch_index,batch in enumerate(loader):
             optimizer.zero_grad(set_to_none=True)
             labels=batch['labels'];inputs={k:v for k,v in batch.items() if k!='labels'}
@@ -58,6 +65,7 @@ def train(directory,csv_path,out,debug=False,quiet=False):
             expected=tokenizer([r['text'] for r in records],padding=True,truncation=True,max_length=64,return_tensors='pt')
             if inputs['attention_mask'].shape!=expected['attention_mask'].shape or not torch.equal(inputs['attention_mask'],expected['attention_mask']):
                 raise RuntimeError('Attention mask does not mark padding correctly')
+            # breakpoint()
             if labels.dtype!=torch.long or labels.shape!=(len(labels),) or logits.shape!=(len(labels),2):
                 raise RuntimeError('Classification shape/dtype contract failed')
             if loss.ndim!=0 or not torch.isfinite(loss):raise RuntimeError('Expected finite scalar loss')

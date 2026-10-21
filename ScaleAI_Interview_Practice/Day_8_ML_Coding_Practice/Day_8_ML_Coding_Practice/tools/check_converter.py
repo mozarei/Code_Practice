@@ -1,6 +1,6 @@
 import argparse,copy,csv,subprocess,sys
 from pathlib import Path
-from check_helpers import ROOT,run_cases
+from ScaleAI_Interview_Practice.Day_8_ML_Coding_Practice.Day_8_ML_Coding_Practice.tools.check_helpers import ROOT,run_cases
 def doc(identifier='a',title='T',body='B'):
     return {'id':identifier,'content':{'title':title,'body':body}}
 def review(identifier='a',decision='allow',status='final'):

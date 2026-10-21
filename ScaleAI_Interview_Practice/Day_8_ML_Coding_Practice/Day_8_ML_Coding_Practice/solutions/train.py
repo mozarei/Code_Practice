@@ -5,11 +5,11 @@ from pathlib import Path
 import torch
 from torch.utils.data import DataLoader
 from transformers import AutoTokenizer
-from data import TextRows
-from batching import make_collator
-from model import ReviewClassifier
-from objective import classification_loss
-from optim import build_optimizer
+from ScaleAI_Interview_Practice.Day_8_ML_Coding_Practice.Day_8_ML_Coding_Practice.solutions.data import TextRows
+from ScaleAI_Interview_Practice.Day_8_ML_Coding_Practice.Day_8_ML_Coding_Practice.solutions.batching import make_collator
+from ScaleAI_Interview_Practice.Day_8_ML_Coding_Practice.Day_8_ML_Coding_Practice.solutions.model import ReviewClassifier
+from ScaleAI_Interview_Practice.Day_8_ML_Coding_Practice.Day_8_ML_Coding_Practice.solutions.objective import classification_loss
+from ScaleAI_Interview_Practice.Day_8_ML_Coding_Practice.Day_8_ML_Coding_Practice.solutions.optim import build_optimizer
 
 ROOT=Path(__file__).resolve().parents[1]
 

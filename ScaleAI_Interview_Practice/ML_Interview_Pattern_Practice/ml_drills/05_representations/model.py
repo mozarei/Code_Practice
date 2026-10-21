@@ -6,5 +6,8 @@ class Classifier(nn.Module):
         self.backbone=AutoModelForSequenceClassification.from_pretrained(checkpoint,local_files_only=True)
     def forward(self,**inputs):
         encoded=self.backbone.bert(**inputs,return_dict=True)
-        features=encoded.last_hidden_state.mean(dim=-1)
+
+
+        features=encoded.pooler_output#.mean(dim=-1)
+        # breakpoint()
         return self.backbone.classifier(self.backbone.dropout(features))

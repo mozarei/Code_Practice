@@ -1,5 +1,6 @@
 from torch import nn
 from transformers import AutoModelForSequenceClassification
+
 class Classifier(nn.Module):
     def __init__(self,checkpoint):
         super().__init__()
@@ -7,4 +8,6 @@ class Classifier(nn.Module):
         self.backbone.bert.requires_grad_(True)
     def forward(self,**inputs):
         outputs=self.backbone(**inputs)
-        return outputs
+
+        # breakpoint()
+        return outputs['logits']
